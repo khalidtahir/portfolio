@@ -1,24 +1,45 @@
-import { useEffect, useState } from "react"
+"use client";
+
+import { useEffect, useState } from "react";
 
 export default function Typewriter({
-  text,
-  speed = 22,
-  className = "",
+  words,
+  speed = 80,
+  loop = false,
 }: {
-  text: string
-  speed?: number
-  className?: string
+  words: string[];
+  speed?: number;
+  loop?: boolean;
 }) {
-  const [out, setOut] = useState("")
+  const [text, setText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    let i = 0
-    const id = setInterval(() => {
-      setOut((prev) => (i < text.length ? prev + text[i++] : prev))
-      if (i >= text.length) clearInterval(id)
-    }, speed)
-    return () => clearInterval(id)
-  }, [text, speed])
+    if (wordIndex >= words.length) {
+      if (loop) setWordIndex(0);
+      else return;
+    }
 
-  return <span className={`${className} typing-caret`}>{out}</span>
+    if (charIndex < words[wordIndex].length) {
+      const timeout = setTimeout(() => {
+        setText(words[wordIndex].slice(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+      }, speed);
+      return () => clearTimeout(timeout);
+    } else {
+      const pause = setTimeout(() => {
+        setWordIndex(wordIndex + 1);
+        setCharIndex(0);
+        setText("");
+      }, 1500);
+      return () => clearTimeout(pause);
+    }
+  }, [charIndex, wordIndex, words, loop, speed]);
+
+  return (
+    <span className="typing-caret">
+      {text}
+    </span>
+  );
 }
