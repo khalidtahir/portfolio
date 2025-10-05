@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link"; // ✅ add this
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className="border-b">
+        <header className="sticky top-0 z-40 border-b border-white/10 bg-black/20 backdrop-blur supports-[backdrop-filter]:bg-black/10 text-white">
           <nav className="mx-auto flex max-w-5xl items-center justify-between p-4">
             <Link href="/" className="font-bold text-lg">Khalid Tahir</Link>
             <div className="flex gap-5 text-sm">

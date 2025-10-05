@@ -74,7 +74,7 @@ export const projects: Project[] = [
       "Track workouts, meals, and progress with a clean API and typed data model.",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
     status: "in-progress",
-    links: { repo: "#", live: "#" },
+    links: { repo: "#", live: "#" }, // replace when I upload to GitHub
     bullets: [
       "Domain model for workouts/meals/sessions; daily aggregates & trends.",
       "REST/Server Actions API with auth, input validation, and rate-limits.",
@@ -103,4 +103,17 @@ export const projects: Project[] = [
       "Focus on practical trade-offs (bias/variance, feature engineering).",
     ],
   },
+{
+  title: "Song Ranking Project",
+  tagline: "Interactive pairwise ranking of songs per album (React + Vite).",
+  stack: ["React", "Vite", "JavaScript"],
+  status: "in-progress",
+  links: { repo: "#", live: "#" }, // replace when I upload to GitHub
+  bullets: [
+    "Binary-search style placement: compare a new song against the ranked list to insert at the right position.",
+    "Local dataset for Travis Scott albums; album art served from /public/album-covers.",
+    "Stateful UI with ranked/unranked queues and a comparison view."
+  ]
+}
+
 ]

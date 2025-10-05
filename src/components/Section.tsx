@@ -1,4 +1,4 @@
-// /components/Section.tsx
+
 export default function Section({
   title,
   children,
