@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import NavLink from "@/components/NavLink";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Khalid Tahir | Portfolio",
@@ -28,16 +22,29 @@ export default function RootLayout({
           <nav className="mx-auto flex max-w-5xl items-center justify-between p-4">
             <Link href="/" className="font-bold text-lg">Khalid Tahir</Link>
             <div className="flex gap-5 text-sm">
-              <Link href="/projects" className="hover:underline">Projects</Link>
-              <Link href="/school" className="hover:underline">School</Link>
-              <Link href="/experience" className="hover:underline">Experience</Link>
-              <Link href="/about" className="hover:underline">About</Link>
-              <Link href="/resume" className="hover:underline">Resume</Link>
-              <Link href="/contact" className="hover:underline">Contact</Link>
+              <NavLink href="/projects">Projects</NavLink>
+              <NavLink href="/school">School</NavLink>
+              <NavLink href="/experience">Experience</NavLink>
+              <NavLink href="/about">About</NavLink>
+              <NavLink href="/resume">Resume</NavLink>
+              <NavLink href="/contact">Contact</NavLink>
             </div>
           </nav>
         </header>
+
         <main className="mx-auto max-w-5xl p-4">{children}</main>
+
+        <footer className="mx-auto max-w-5xl p-4 text-xs text-white/60">
+          © {new Date().getFullYear()} Khalid Tahir · Built with Next.js ·{" "}
+          <a
+            className="underline"
+            href="https://github.com/khalidtahir/portfolio"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View source
+          </a>
+        </footer>
       </body>
     </html>
   );
