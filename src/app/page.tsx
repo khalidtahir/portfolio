@@ -22,7 +22,6 @@ function Card({
 export default function Home() {
   return (
     <div className="min-h-[calc(100vh-6rem)]">
-      {/* background */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_10%_10%,rgba(59,130,246,0.20),transparent_60%),radial-gradient(50%_50%_at_90%_20%,rgba(16,185,129,0.18),transparent_55%)]"></div>
 
       {/* HERO */}
@@ -87,19 +86,19 @@ export default function Home() {
         <Card>
           <div className="code-accent mb-2">{`// backend & data`}</div>
           <p className="text-sm text-white/80">
-            Build type-safe APIs, scalable databases, and fast authentication flows that feel instant.
+            Design and build type-safe APIs, optimized data models, and secure authentication for fast, reliable backends.
           </p>
         </Card>
         <Card>
           <div className="code-accent mb-2">{`// automation`}</div>
           <p className="text-sm text-white/80">
-            Automate manual work — from intake forms to dashboards — so teams get real-time insight and alerts.
+            Transform manual workflows into automated systems — from intake forms to real-time dashboards and alerts.
           </p>
         </Card>
         <Card>
           <div className="code-accent mb-2">{`// embedded systems`}</div>
           <p className="text-sm text-white/80">
-            Hands-on with hardware-aware programming and low-level optimization, bridging devices to data.
+            Hardware-aware programming and system-level optimization, bridging low-level control and scalable software.
           </p>
         </Card>
       </section>
@@ -139,15 +138,6 @@ export default function Home() {
                 Proud former member of the rugby club at Queen&#39;s. I spent two years on the team playing 8-man &amp; prop, and had a blast doing so!
               </p>
             </div>
-          </Card>
-
-          {/* Rugby Banquet */}
-          <Card>
-            <a href="/rugbyBanquet.jpg" target="_blank" rel="noopener noreferrer">
-              <div className="relative h-56 overflow-hidden rounded-xl">
-                <Image src="/rugbyBanquet.jpg" alt="Rugby banquet" fill sizes="300px" className="object-cover hover:scale-105 transition-transform" />
-              </div>
-            </a>
           </Card>
 
           {/* Year Exec */}
