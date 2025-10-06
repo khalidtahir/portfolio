@@ -4,10 +4,6 @@ import Image from "next/image";
 import Typewriter from "@/components/Typewriter";
 
 const HEADSHOT = "/headshot.jpg";
-const SPORTS: { label: string; img: string }[] = [
-  { label: "Soccer", img: "/soccer.jpg" },
-  { label: "Rugby", img: "/rugby.jpg" },
-];
 const RUGBY_BANQUET = "/rugbyBanquet.jpg";
 const ENG_EXEC = "/year-exec.jpg";
 
@@ -35,14 +31,12 @@ export default function Home() {
         <div className="space-y-5 max-w-2xl">
           <div className="code-accent">{`// welcome`}</div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
-            <Typewriter text={"hey, i'm khalid — welcome to my portfolio()"} />
+            <Typewriter text={"Hey, I'm Khalid — Welcome to My Portfolio"} />
           </h1>
           <p className="text-lg text-white/80">
-            I'm a fifth-year Computer Engineering student at Queen&#39;s University, and I'm focused
-            on <span className="font-medium text-white">backend systems</span> and figuring out how
-            to make software feel instant. My passion is taking on the challenge of building
-            efficient, reliable services—the kind of system-level code that runs fast and clean,
-            especially when dealing with real-time data.
+            I&#39;m a fifth-year Computer Engineering student at Queen&#39;s University, and I&#39;m focused on{" "}
+            <span className="font-medium text-white">backend systems</span> and figuring out how to make software feel instant. My passion is taking on the challenge of building
+            efficient, reliable services — the kind of system-level code that runs fast and clean, especially when dealing with real-time data.
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -121,43 +115,45 @@ export default function Home() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {/* Soccer */}
-          <Card>
+          <Card className="hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.6)] transition-shadow">
             <div className="relative h-40 overflow-hidden rounded-xl">
               <Image src="/soccer.jpg" alt="Soccer" fill sizes="300px" className="object-cover" />
             </div>
             <div className="mt-3">
               <div className="font-semibold text-white">Soccer</div>
-              <p className="text-sm text-white/70">
-                In my free time I like to play soccer and stay active through competitive pickup games.
+              <p className="text-sm text-white/70 clamp-2">
+                In my free time I love playing competitive soccer.
               </p>
             </div>
           </Card>
 
-          {/* Rugby (action + banquet combined) */}
-          <Card>
-            <div className="relative h-40 overflow-hidden rounded-xl">
-              <Image src="/rugby.jpg" alt="Rugby action" fill sizes="300px" className="object-cover" />
+          {/* Rugby (action + banquet) */}
+          <Card className="hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.6)] transition-shadow">
+            <div className="grid grid-cols-2 gap-2">
+              <div className="relative h-40 overflow-hidden rounded-xl">
+                <Image src="/rugby.jpg" alt="Rugby action" fill sizes="300px" className="object-cover" />
+              </div>
+              <div className="relative h-40 overflow-hidden rounded-xl">
+                <Image src={RUGBY_BANQUET} alt="Rugby banquet" fill sizes="300px" className="object-cover" />
+              </div>
             </div>
             <div className="mt-3">
               <div className="font-semibold text-white">Queen&#39;s Varsity Rugby Club</div>
-              <p className="text-sm text-white/70">
-                Proud former member of the Queen&#39;s Varsity Rugby Club — played 8-man &amp; prop for two seasons.
+              <p className="text-sm text-white/70 clamp-2">
+                Proud former member — played 8-man &amp; prop for two seasons.
               </p>
-            </div>
-            <div className="relative h-40 overflow-hidden rounded-xl mt-3">
-              <Image src={RUGBY_BANQUET} alt="Rugby banquet" fill sizes="300px" className="object-cover" />
             </div>
           </Card>
 
           {/* Engineering Exec */}
-          <Card>
+          <Card className="hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.6)] transition-shadow">
             <div className="relative h-40 overflow-hidden rounded-xl">
-              <Image src={ENG_EXEC} alt="Year exec" fill sizes="300px" className="object-cover" />
+              <Image src={ENG_EXEC} alt="Queen&#39;s Engineering Society Year Exec" fill sizes="300px" className="object-cover" />
             </div>
             <div className="mt-3">
               <div className="font-semibold text-white">Queen&#39;s Engineering Society</div>
-              <p className="text-sm text-white/70">
-                I'm also passionate about community involvement and served as Publicity Manager for the Class of 2025 Year Executive Team.
+              <p className="text-sm text-white/70 clamp-2">
+                Passionate about community and leadership — served as Publicity Manager for the Class of 2025 Year Executives.
               </p>
             </div>
           </Card>
