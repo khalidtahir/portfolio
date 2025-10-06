@@ -32,7 +32,7 @@ export default function Home() {
             <Typewriter text={"hey, i’m khalid — welcome to my portfolio()"} />
           </h1>
           <p className="text-lg text-white/80">
-            I'm a fifth-year Computer Engineering student at Queen&#39;s University, focused on{" "}
+            I&#39;m a fifth-year Computer Engineering student at Queen&#39;s University, focused on{" "}
             <span className="font-medium text-white">backend systems</span> and{" "}
             <span className="font-medium text-white">applied AI/ML</span>. My passion is building
             fast, reliable services — the kind of system-level code that runs clean, especially with real-time data.
@@ -135,7 +135,7 @@ export default function Home() {
             <div className="mt-3">
               <div className="font-semibold text-white">Queen&#39;s Varsity Rugby Club</div>
               <p className="text-sm text-white/70">
-                Proud former member — I spent two years on the team playing 8-man &amp; prop.
+                Proud former member of the rugby club at Queen&#39;s. I spent two years on the team playing 8-man &amp; prop, and had a blast doing so!
               </p>
             </div>
           </Card>
@@ -159,7 +159,7 @@ export default function Home() {
             <div className="mt-3">
               <div className="font-semibold text-white">Queen&#39;s Engineering Society Exec</div>
               <p className="text-sm text-white/70">
-                Passionate about community — served as Publicity Manager for my Class of 2025 Year Executives.
+                I am also very passionate about community and I served as Publicity Manager for my Class of 2025 Year Executive Team.
               </p>
             </div>
           </Card>
