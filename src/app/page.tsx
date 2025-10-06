@@ -22,6 +22,7 @@ function Card({
 export default function Home() {
   return (
     <div className="min-h-[calc(100vh-6rem)]">
+      {/* background */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_10%_10%,rgba(59,130,246,0.20),transparent_60%),radial-gradient(50%_50%_at_90%_20%,rgba(16,185,129,0.18),transparent_55%)]"></div>
 
       {/* HERO */}
@@ -86,19 +87,19 @@ export default function Home() {
         <Card>
           <div className="code-accent mb-2">{`// backend & data`}</div>
           <p className="text-sm text-white/80">
-            Design and build type-safe APIs, optimized data models, and secure authentication for fast, reliable backends.
+            Build type-safe APIs, scalable databases, and fast authentication flows that feel instant.
           </p>
         </Card>
         <Card>
           <div className="code-accent mb-2">{`// automation`}</div>
           <p className="text-sm text-white/80">
-            Transform manual workflows into automated systems — from intake forms to real-time dashboards and alerts.
+            Automate manual work — from intake forms to dashboards — so teams get real-time insight and alerts.
           </p>
         </Card>
         <Card>
           <div className="code-accent mb-2">{`// embedded systems`}</div>
           <p className="text-sm text-white/80">
-            Hardware-aware programming and system-level optimization, bridging low-level control and scalable software.
+            Hands-on with hardware-aware programming and low-level optimization, bridging devices to data.
           </p>
         </Card>
       </section>
@@ -120,7 +121,7 @@ export default function Home() {
             <div className="mt-3">
               <div className="font-semibold text-white">Soccer</div>
               <p className="text-sm text-white/70">
-                In my free time I love playing soccer with friends and competitive leagues.
+                In my free time I love playing soccer with friends and in competitive leagues.
               </p>
             </div>
           </Card>
