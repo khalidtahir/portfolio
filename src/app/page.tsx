@@ -4,8 +4,6 @@ import Image from "next/image";
 import Typewriter from "@/components/Typewriter";
 
 const HEADSHOT = "/headshot.jpg";
-const RUGBY_BANQUET = "/rugbyBanquet.jpg";
-const ENG_EXEC = "/year-exec.jpg";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return <span className="pill">{children}</span>;
@@ -31,12 +29,13 @@ export default function Home() {
         <div className="space-y-5 max-w-2xl">
           <div className="code-accent">{`// welcome`}</div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
-            <Typewriter text={"Hey, I'm Khalid — Welcome to My Portfolio"} />
+            <Typewriter text={"hey, i’m khalid — welcome to my portfolio()"} />
           </h1>
           <p className="text-lg text-white/80">
-            I&#39;m a fifth-year Computer Engineering student at Queen&#39;s University, and I&#39;m focused on{" "}
-            <span className="font-medium text-white">backend systems</span> and figuring out how to make software feel instant. My passion is taking on the challenge of building
-            efficient, reliable services — the kind of system-level code that runs fast and clean, especially when dealing with real-time data.
+            I'm a fifth-year Computer Engineering student at Queen&#39;s University, focused on{" "}
+            <span className="font-medium text-white">backend systems</span> and{" "}
+            <span className="font-medium text-white">applied AI/ML</span>. My passion is building
+            fast, reliable services — the kind of system-level code that runs clean, especially with real-time data.
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -93,13 +92,13 @@ export default function Home() {
         <Card>
           <div className="code-accent mb-2">{`// automation`}</div>
           <p className="text-sm text-white/80">
-            Turn manual workflows into automated, data-driven systems — from intake forms to real-time dashboards and alerts.
+            Transform manual workflows into automated systems — from intake forms to real-time dashboards and alerts.
           </p>
         </Card>
         <Card>
           <div className="code-accent mb-2">{`// embedded systems`}</div>
           <p className="text-sm text-white/80">
-            Hands-on with hardware-aware programming and system-level optimization, bridging low-level control and scalable software.
+            Hardware-aware programming and system-level optimization, bridging low-level control and scalable software.
           </p>
         </Card>
       </section>
@@ -108,52 +107,59 @@ export default function Home() {
       <section className="mt-10">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-white">Outside of work</h2>
-          <Link href="/projects" className="text-sm text-white/70 hover:text-white">
-            See projects →
-          </Link>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {/* Soccer */}
-          <Card className="hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.6)] transition-shadow">
-            <div className="relative h-40 overflow-hidden rounded-xl">
-              <Image src="/soccer.jpg" alt="Soccer" fill sizes="300px" className="object-cover" />
-            </div>
+          <Card>
+            <a href="/soccer.jpg" target="_blank" rel="noopener noreferrer">
+              <div className="relative h-56 overflow-hidden rounded-xl">
+                <Image src="/soccer.jpg" alt="Soccer" fill sizes="300px" className="object-cover hover:scale-105 transition-transform" />
+              </div>
+            </a>
             <div className="mt-3">
               <div className="font-semibold text-white">Soccer</div>
-              <p className="text-sm text-white/70 clamp-2">
-                In my free time I love playing competitive soccer.
+              <p className="text-sm text-white/70">
+                In my free time I love playing soccer with friends and competitive leagues.
               </p>
             </div>
           </Card>
 
-          {/* Rugby (action + banquet) */}
-          <Card className="hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.6)] transition-shadow">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="relative h-40 overflow-hidden rounded-xl">
-                <Image src="/rugby.jpg" alt="Rugby action" fill sizes="300px" className="object-cover" />
+          {/* Rugby Game */}
+          <Card>
+            <a href="/rugby.jpg" target="_blank" rel="noopener noreferrer">
+              <div className="relative h-56 overflow-hidden rounded-xl">
+                <Image src="/rugby.jpg" alt="Rugby" fill sizes="300px" className="object-cover hover:scale-105 transition-transform" />
               </div>
-              <div className="relative h-40 overflow-hidden rounded-xl">
-                <Image src={RUGBY_BANQUET} alt="Rugby banquet" fill sizes="300px" className="object-cover" />
-              </div>
-            </div>
+            </a>
             <div className="mt-3">
               <div className="font-semibold text-white">Queen&#39;s Varsity Rugby Club</div>
-              <p className="text-sm text-white/70 clamp-2">
-                Proud former member — played 8-man &amp; prop for two seasons.
+              <p className="text-sm text-white/70">
+                Proud former member — I spent two years on the team playing 8-man &amp; prop.
               </p>
             </div>
           </Card>
 
-          {/* Engineering Exec */}
-          <Card className="hover:shadow-[0_0_30px_-10px_rgba(59,130,246,0.6)] transition-shadow">
-            <div className="relative h-40 overflow-hidden rounded-xl">
-              <Image src={ENG_EXEC} alt="Queen&#39;s Engineering Society Year Exec" fill sizes="300px" className="object-cover" />
-            </div>
+          {/* Rugby Banquet */}
+          <Card>
+            <a href="/rugbyBanquet.jpg" target="_blank" rel="noopener noreferrer">
+              <div className="relative h-56 overflow-hidden rounded-xl">
+                <Image src="/rugbyBanquet.jpg" alt="Rugby banquet" fill sizes="300px" className="object-cover hover:scale-105 transition-transform" />
+              </div>
+            </a>
+          </Card>
+
+          {/* Year Exec */}
+          <Card>
+            <a href="/year-exec.jpg" target="_blank" rel="noopener noreferrer">
+              <div className="relative h-56 overflow-hidden rounded-xl">
+                <Image src="/year-exec.jpg" alt="Queen's Engineering Exec" fill sizes="300px" className="object-cover hover:scale-105 transition-transform" />
+              </div>
+            </a>
             <div className="mt-3">
-              <div className="font-semibold text-white">Queen&#39;s Engineering Society</div>
-              <p className="text-sm text-white/70 clamp-2">
-                Passionate about community and leadership — served as Publicity Manager for the Class of 2025 Year Executives.
+              <div className="font-semibold text-white">Queen&#39;s Engineering Society Exec</div>
+              <p className="text-sm text-white/70">
+                Passionate about community — served as Publicity Manager for my Class of 2025 Year Executives.
               </p>
             </div>
           </Card>
