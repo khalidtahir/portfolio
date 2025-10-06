@@ -1,22 +1,28 @@
 // src/app/page.tsx
-import Link from "next/link"
-import Image from "next/image"
-import Typewriter from "@/components/Typewriter"
+import Link from "next/link";
+import Image from "next/image";
+import Typewriter from "@/components/Typewriter";
 
-const HEADSHOT = "/headshot.jpg"
+const HEADSHOT = "/headshot.jpg";
 const SPORTS: { label: string; img: string }[] = [
   { label: "Soccer", img: "/soccer.jpg" },
   { label: "Rugby", img: "/rugby.jpg" },
-  { label: "Football", img: "/football.jpg" },
-  { label: "Basketball", img: "/basketball.jpg" },
-]
+];
+const RUGBY_BANQUET = "/rugbyBanquet.jpg";
+const ENG_EXEC = "/year-exec.jpg";
 
 function Pill({ children }: { children: React.ReactNode }) {
-  return <span className="pill">{children}</span>
+  return <span className="pill">{children}</span>;
 }
 
-function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`card p-6 ${className}`}>{children}</div>
+function Card({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <div className={`card p-6 ${className}`}>{children}</div>;
 }
 
 export default function Home() {
@@ -24,17 +30,19 @@ export default function Home() {
     <div className="min-h-[calc(100vh-6rem)]">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_10%_10%,rgba(59,130,246,0.20),transparent_60%),radial-gradient(50%_50%_at_90%_20%,rgba(16,185,129,0.18),transparent_55%)]"></div>
 
-      <section className="grid gap-8 md:grid-cols-[1.2fr_.8fr] items-center">
-        <div className="space-y-5">
+      {/* HERO */}
+      <section className="grid gap-8 md:grid-cols-[1.1fr_.9fr] items-center">
+        <div className="space-y-5 max-w-2xl">
           <div className="code-accent">{`// welcome`}</div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
-            <Typewriter text={"hey, i\u2019m khalid \u2014 welcome to my portfolio()"} />
+            <Typewriter text={"hey, i'm khalid — welcome to my portfolio()"} />
           </h1>
           <p className="text-lg text-white/80">
-            I\u2019m a fifth-year Computer Engineering student at Queen&#39;s University, focused on{" "}
-            <span className="font-medium text-white">backend systems</span> and{" "}
-            <span className="font-medium text-white">applied AI/ML</span>. My goal is to work on
-            reliable services and data workflows that actually ship.
+            I'm a fifth-year Computer Engineering student at Queen&#39;s University, and I'm focused
+            on <span className="font-medium text-white">backend systems</span> and figuring out how
+            to make software feel instant. My passion is taking on the challenge of building
+            efficient, reliable services—the kind of system-level code that runs fast and clean,
+            especially when dealing with real-time data.
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -47,16 +55,23 @@ export default function Home() {
           </div>
 
           <div className="flex gap-3 pt-2">
-            <Link href="/projects" className="rounded-xl bg-white text-black px-5 py-3 text-sm font-semibold hover:bg-white/90 transition">
+            <Link
+              href="/projects"
+              className="rounded-xl bg-white text-black px-5 py-3 text-sm font-semibold hover:bg-white/90 transition shadow"
+            >
               View Projects
             </Link>
-            <Link href="/contact" className="rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/5 transition">
+            <Link
+              href="/contact"
+              className="rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/5 transition"
+            >
               Contact
             </Link>
           </div>
         </div>
 
-        <Card className="justify-self-center w-full max-w-[380px]">
+        {/* Headshot */}
+        <Card className="justify-self-center w-full max-w-[380px] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
             <Image
               src={HEADSHOT}
@@ -73,57 +88,81 @@ export default function Home() {
         </Card>
       </section>
 
+      {/* TECH HIGHLIGHTS */}
       <section className="mt-10 grid gap-6 md:grid-cols-3">
         <Card>
           <div className="code-accent mb-2">{`// backend & data`}</div>
           <p className="text-sm text-white/80">
-            Type-safe APIs, schema design, auth, and rate-limits over PostgreSQL with Prisma.
+            Design and build type-safe APIs, optimized data models, and secure authentication for fast, reliable backends.
           </p>
         </Card>
         <Card>
           <div className="code-accent mb-2">{`// automation`}</div>
           <p className="text-sm text-white/80">
-            Real workflows: Forms → storage → dashboards (Power Automate, SharePoint, Power BI).
+            Turn manual workflows into automated, data-driven systems — from intake forms to real-time dashboards and alerts.
           </p>
         </Card>
         <Card>
-          <div className="code-accent mb-2">{`// embedded & systems`}</div>
+          <div className="code-accent mb-2">{`// embedded systems`}</div>
           <p className="text-sm text-white/80">
-            Interest in embedded systems &amp; systems programming alongside backend work.
+            Hands-on with hardware-aware programming and system-level optimization, bridging low-level control and scalable software.
           </p>
         </Card>
       </section>
 
+      {/* OUTSIDE OF WORK */}
       <section className="mt-10">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-white">Outside of work</h2>
-          <Link href="/projects" className="text-sm text-white/70 hover:text-white">See projects →</Link>
+          <Link href="/projects" className="text-sm text-white/70 hover:text-white">
+            See projects →
+          </Link>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SPORTS.map((s) => (
-            <Card key={s.label}>
-              <div className="relative h-40 overflow-hidden rounded-xl">
-                <Image src={s.img} alt={s.label} fill sizes="300px" className="object-cover" />
-              </div>
-              <div className="mt-3">
-                <div className="font-semibold text-white">{s.label}</div>
-                <p className="text-sm text-white/70">In my free time I like to play {s.label.toLowerCase()}.</p>
-              </div>
-            </Card>
-          ))}
-
+          {/* Soccer */}
           <Card>
-            <div className="font-semibold text-white">Queen&#39;s Varsity Rugby Club</div>
             <div className="relative h-40 overflow-hidden rounded-xl">
-              <Image src="/rugbyBanquet.jpg" alt="Rugby team banquet" fill sizes="300px" className="object-cover" />
+              <Image src="/soccer.jpg" alt="Soccer" fill sizes="300px" className="object-cover" />
             </div>
-            <p className="mt-2 text-sm text-white/70">
-              Proud former member of the Queen&#39;s Varsity Rugby Club. I spent two years on the team playing 8-man &amp; prop, and enjoyed it very much!
-            </p>
+            <div className="mt-3">
+              <div className="font-semibold text-white">Soccer</div>
+              <p className="text-sm text-white/70">
+                In my free time I like to play soccer and stay active through competitive pickup games.
+              </p>
+            </div>
+          </Card>
+
+          {/* Rugby (action + banquet combined) */}
+          <Card>
+            <div className="relative h-40 overflow-hidden rounded-xl">
+              <Image src="/rugby.jpg" alt="Rugby action" fill sizes="300px" className="object-cover" />
+            </div>
+            <div className="mt-3">
+              <div className="font-semibold text-white">Queen&#39;s Varsity Rugby Club</div>
+              <p className="text-sm text-white/70">
+                Proud former member of the Queen&#39;s Varsity Rugby Club — played 8-man &amp; prop for two seasons.
+              </p>
+            </div>
+            <div className="relative h-40 overflow-hidden rounded-xl mt-3">
+              <Image src={RUGBY_BANQUET} alt="Rugby banquet" fill sizes="300px" className="object-cover" />
+            </div>
+          </Card>
+
+          {/* Engineering Exec */}
+          <Card>
+            <div className="relative h-40 overflow-hidden rounded-xl">
+              <Image src={ENG_EXEC} alt="Year exec" fill sizes="300px" className="object-cover" />
+            </div>
+            <div className="mt-3">
+              <div className="font-semibold text-white">Queen&#39;s Engineering Society</div>
+              <p className="text-sm text-white/70">
+                I'm also passionate about community involvement and served as Publicity Manager for the Class of 2025 Year Executive Team.
+              </p>
+            </div>
           </Card>
         </div>
       </section>
     </div>
-  )
+  );
 }
