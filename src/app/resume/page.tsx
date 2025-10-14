@@ -4,7 +4,7 @@ export default function Resume() {
     <section className="space-y-4">
       <h1 className="text-3xl font-bold">Resume</h1>
       <p className="text-gray-600">
-        Highlights and a PDF download. (Your PDF file is named Resume.pdf — make sure it’s in the public folder)
+        A concise summary of my skills, experience, and education.
       </p>
 
       <h2 className="text-xl font-semibold">Highlights</h2>

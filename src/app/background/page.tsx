@@ -69,24 +69,25 @@ export default function BackgroundPage() {
       {/* Experience */}
       <Section title="Experience">
         <TimelineCard
-          title="Project Manager Intern"
-          subtitle="Queen's University IT Services"
+          title="IT Project Manager Intern"
+          subtitle="Queen’s University IT Services"
           date="May 2024 – Sep 2025"
-          description="Worked on enterprise process automation and data-driven dashboards that improved transparency, efficiency, and turnaround times for strategic planning."
+          description="Developed a fully automated operating plan management system connecting Microsoft Forms → Power Automate → SharePoint → Power BI, cutting intake processing from 4–5 months to under 4 weeks and earning recognition from the CIO for delivering the fastest annual planning cycle in department history."
           highlights={[
-            "Built an automated Operating Plan pipeline connecting Microsoft Forms → SharePoint → Power BI, reducing intake cycle from 4–5 months to under 4 weeks.",
-            "Developed dynamic dashboards for 300+ projects with real-time KPIs, SLA tracking, and ownership metrics.",
-            "Created a Lessons Learned Repository and RAID Log system (risks, actions, issues, decisions) — automating Excel-to-SharePoint ingestion using Power Automate.",
-            "Partnered with engineers to define data models, Power BI refresh schedules, and Salesforce integrations for bots and Intelligent Document Readers (IDR).",
+            "Designed and implemented a Lessons Learned Repository, replacing static Excel sheets with a dynamic SharePoint automation flow for data submission and filtering, improving accessibility and knowledge sharing across departments.",
+            "Built a RAID Log automation system (Risks, Actions, Issues, Decisions) using Power Automate and SharePoint to automate data population and tracking for leadership reporting.",
+            "Created and maintained Power BI dashboards for executives and project managers, providing real-time visibility across 300+ projects by status, completion forecasts, and overdue items.",
+            "Coordinated Agile ceremonies for a university-wide Salesforce (ECRM) rollout, managing sprint planning, backlog refinement, and RAID tracking as a liaison between internal teams and consultants.",
+            "Conducted UAT for Salesforce enhancements including the international student applicant portal and Einstein chatbot, identifying and resolving critical pre-launch issues.",
+            "Tools: Power Automate · SharePoint · Power BI · Azure DevOps · Salesforce"
           ]}
           award="🏆 Student Spotlight Award — recognized for excellence in contributions to the department."
-          isExperience
+          isExperience={true}
         />
-
         <TimelineCard
           title="Outreach Director"
           subtitle="MENAQ (Middle Eastern and North African Students at Queen's)"
-          date="2024 – Present"
+          date="Sep 2025 – Present"
           description="Promoting cultural connection and inclusivity through community events, collaborations, and outreach initiatives across campus."
         />
 
@@ -101,12 +102,12 @@ export default function BackgroundPage() {
       {/* Education */}
       <Section title="Education">
         <TimelineCard
-          title="Queen's University"
+          title="Smith School of Engineering, Queen's University"
           subtitle="Bachelor of Applied Science (BASc), Computer Engineering"
           date="Sep 2021 – May 2026"
-          description="Focused on backend systems, applied AI/ML, and data infrastructure."
+          description="Specializing in Software Engineering: Option in Artificial Intelligence and Computer Systems"
           highlights={[
-            "Relevant coursework: Machine Learning (ELEC 425), Artificial Intelligence (ELEC 471), Data Structures & Algorithms (CISC 223), Software Requirements, and Distributed Systems.",
+            "Relevant coursework: Machine Learning W/ Deep Vision, Artificial Intelligence, Data Structures & Algorithms, Software Requirements, and Distributed Systems.",
           ]}
         />
       </Section>
