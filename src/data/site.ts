@@ -74,46 +74,55 @@ export const projects: Project[] = [
       "Track workouts, meals, and progress with a clean API and typed data model.",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
     status: "in-progress",
-    links: { repo: "#", live: "#" }, // replace when I upload to GitHub
+    // add link here when live 
     bullets: [
       "Domain model for workouts/meals/sessions; daily aggregates & trends.",
       "REST/Server Actions API with auth, input validation, and rate-limits.",
       "Prisma schema with relational entities and future ML hooks (recommendations).",
+      "Status: Coming soon (shipping this month).",
     ],
   },
-  {
-    title: "Operating Plan Automation",
-    tagline:
-      "Intake → approvals → SharePoint storage → Power BI dashboards (executive views).",
-    stack: ["Power Automate", "SharePoint", "Power BI", "Graph API"],
-    status: "live",
-    bullets: [
-      "Cut intake 4–5 months → < 4 weeks with automated routing & alerts.",
-      "Visibility for 300+ projects; ownership & SLA tracking.",
-    ],
-  },
-  {
-    title: "ML Coursework Mini-Projects",
-    tagline:
-      "Hands-on ML notebooks: classification, regularization, and model evaluation.",
-    stack: ["Python", "NumPy", "scikit-learn", "Pandas"],
-    status: "planned",
-    bullets: [
-      "Reproducible pipelines with standardization, cross-validation, and metrics.",
-      "Focus on practical trade-offs (bias/variance, feature engineering).",
-    ],
-  },
-{
-  title: "Song Ranking Project",
-  tagline: "Interactive pairwise ranking of songs per album (React + Vite).",
-  stack: ["React", "Vite", "JavaScript"],
-  status: "in-progress",
-  links: { repo: "#", live: "#" }, // replace when I upload to GitHub
-  bullets: [
-    "Binary-search style placement: compare a new song against the ranked list to insert at the right position.",
-    "Local dataset for Travis Scott albums; album art served from /public/album-covers.",
-    "Stateful UI with ranked/unranked queues and a comparison view."
-  ]
-}
 
-]
+  {
+    title: "Song Ranking Project",
+    tagline: "Interactive pairwise ranking of songs per album (React + Vite).",
+    stack: ["React", "Vite", "JavaScript"],
+    status: "in-progress",
+    links: {
+      repo: "https://github.com/khalidtahir/rankingProject",
+      // add live link here if i decide to deploy it
+    },
+    bullets: [
+      "Binary-search style placement: compare a new song against the ranked list to insert at the right position.",
+      "Local dataset for Travis Scott albums; album art served from /public/album-covers.",
+      "Stateful UI with ranked/unranked queues and a comparison view.",
+    ],
+  },
+  {
+    title: "Portfolio Design & Build",
+    tagline:
+      "This site — dark editor aesthetic, responsive layout, and content components.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    status: "live",
+    links: {
+      repo: "https://github.com/khalidtahir/portfolio",
+    },
+    bullets: [
+      "Custom sections (typewriter hero, cards), clean routing, and lint-clean builds.",
+      "Deployed on Vercel with custom domain (khalidtahir.com).",
+    ],
+  },
+  {
+    title: "iOS-Based Centralized Monitoring Hub (Capstone)",
+    tagline: "Status: In development.",
+    stack: ["iOS", "Real-time", "Multi-sensor", "Data Sync"],
+    status: "in-progress",
+    bullets: [
+      "Real-time signal acquisition from multiple sources (e.g., laptops, Bluetooth wearables).",
+      "Accurate time-stamping and synchronization across devices for coherent visualization.",
+      "Responsive UI to display simultaneous streams (charts, gauges, alerts).",
+      "Modular design for clinical monitoring and multi-sensor research/fitness use cases.",
+      "Impact: improves monitoring efficiency and response in high-stakes environments and enables comprehensive physiological research.",
+    ],
+  },
+];
