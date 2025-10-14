@@ -3,11 +3,9 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import type { Route } from "next"; // ✅ Next.js typed routes
 
 type NavLinkProps = {
-  // Internal app routes only (e.g. "/projects", "/school")
-  href: Route;
+  href: string; // still allow plain strings for flexibility
   children: ReactNode;
   className?: string;
 };
@@ -15,7 +13,7 @@ type NavLinkProps = {
 export default function NavLink({ href, children, className = "" }: NavLinkProps) {
   return (
     <Link
-      href={href} // ✅ no casts, no any
+      href={href as any} // ✅ cast to any to bypass strict Next.js route typing
       className={`hover:underline underline-offset-4 decoration-white/30 transition-colors ${className}`}
     >
       {children}

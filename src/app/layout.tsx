@@ -22,13 +22,11 @@ export default function RootLayout({
           <nav className="mx-auto flex max-w-5xl items-center justify-between p-4">
             <Link href="/" className="font-bold text-lg">Khalid Tahir</Link>
             <div className="flex gap-5 text-sm">
-              <NavLink href="/projects">Projects</NavLink>
-              <NavLink href="/school">School</NavLink>
-              <NavLink href="/experience">Experience</NavLink>
-              <NavLink href="/about">About</NavLink>
-              <NavLink href="/resume">Resume</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
-            </div>
+            <NavLink href="/projects">Projects</NavLink>
+            <NavLink href="/background">Background</NavLink>
+            <NavLink href="/resume">Resume</NavLink>
+            <NavLink href="/contact">Contact</NavLink>
+          </div>
           </nav>
         </header>
 
