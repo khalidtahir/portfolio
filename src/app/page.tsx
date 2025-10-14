@@ -82,8 +82,8 @@ export default function Home() {
       </section>
 
       {/* TECH HIGHLIGHTS */}
-      <section className="mt-10 grid gap-6 md:grid-cols-3">
-        <h2 className="text-2xl font-bold text-white mb-4">Technical Focus</h2>
+      <section className="mt-12">
+        <h2 className="text-2xl font-semibold text-white mb-6">Technical Focus</h2>
         <div className="grid gap-6 md:grid-cols-3">
         <Card>
           <div className="code-accent mb-2">{`// backend & data`}</div>
