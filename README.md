@@ -1,4 +1,4 @@
-# 🌐 Khalid Tahir — Portfolio Website
+# Khalid Tahir — Portfolio Website
 
 A modern, developer-centric personal portfolio built with **Next.js**, **TypeScript**, and **Tailwind CSS**, showcasing my projects, professional background, and technical journey.
 
@@ -27,7 +27,7 @@ Each section is crafted for clarity and performance — from the typewriter-styl
 ---
 
 ## Project Structure
-
+```text
 src/
 ├── app/
 │ ├── page.tsx # Home page (hero, highlights, etc.)
@@ -45,16 +45,15 @@ src/
 └── site.ts # Site content (projects, experience, about info)
 
 
----
 
 ## Features
 
-- ✨ **Type-safe content** using TypeScript models  
-- 💡 **Dynamic rendering** of projects and background data  
-- 🎨 **Custom UI components** with a dark developer aesthetic  
-- 📱 **Responsive design** optimized for all devices  
-- ⚙️ **Deployed via Vercel** with clean CI/CD pipeline  
-- 🧠 **Readable codebase** built with modular components  
+-  **Type-safe content** using TypeScript models  
+-  **Dynamic rendering** of projects and background data  
+-  **Custom UI components** with a dark developer aesthetic  
+-  **Responsive design** optimized for all devices  
+-  **Deployed via Vercel** with clean CI/CD pipeline  
+-  **Readable codebase** built with modular components  
 
 
 

@@ -69,6 +69,20 @@ export default function BackgroundPage() {
       {/* Experience */}
       <Section title="Experience">
         <TimelineCard
+          title="Part-Time Developer"
+          subtitle="Queen’s University IT Services — Information Security Office"
+          date="Sep 2025 – Present"
+          description="Leading web development for a new internal Cybersecurity Hub initiative under the Information Security Office."
+          highlights={[
+            "Designing SharePoint site architecture using SPFx, including user-based redirect logic for students, staff, and faculty.",
+            "Collaborating with the Information Security team to implement secure and scalable site components.",
+            "Contributing to UI/UX design to align the hub’s navigation, layout, and content structure with Queen’s branding.",
+            "Tools: SharePoint Framework (SPFx) · TypeScript · React · UI/UX Design · SharePoint Online"
+          ]}
+          isExperience={true}
+        />
+
+        <TimelineCard
           title="IT Project Manager Intern"
           subtitle="Queen’s University IT Services"
           date="May 2024 – Sep 2025"
@@ -79,11 +93,12 @@ export default function BackgroundPage() {
             "Created and maintained Power BI dashboards for executives and project managers, providing real-time visibility across 300+ projects by status, completion forecasts, and overdue items.",
             "Coordinated Agile ceremonies for a university-wide Salesforce (ECRM) rollout, managing sprint planning, backlog refinement, and RAID tracking as a liaison between internal teams and consultants.",
             "Conducted UAT for Salesforce enhancements including the international student applicant portal and Einstein chatbot, identifying and resolving critical pre-launch issues.",
-            "Tools: Power Automate · SharePoint · Power BI · Azure DevOps · Salesforce"
+            "Tools: Power Automate · SharePoint · Power BI · Azure DevOps · Salesforce",
           ]}
           award="🏆 Student Spotlight Award — recognized for excellence in contributions to the department."
           isExperience={true}
         />
+
         <TimelineCard
           title="Outreach Director"
           subtitle="MENAQ (Middle Eastern and North African Students at Queen's)"
@@ -107,7 +122,7 @@ export default function BackgroundPage() {
           date="Sep 2021 – May 2026"
           description="Specializing in Software Engineering: Option in Artificial Intelligence and Computer Systems"
           highlights={[
-            "Relevant coursework: Machine Learning W/ Deep Vision, Artificial Intelligence, Data Structures & Algorithms, Software Requirements, and Distributed Systems.",
+            "Relevant coursework: Machine Learning w/ Deep Vision, Artificial Intelligence, Data Structures & Algorithms, Software Requirements, and Distributed Systems.",
           ]}
         />
       </Section>
