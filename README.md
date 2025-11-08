@@ -43,8 +43,8 @@ src/
 │ └── Typewriter.tsx
 └── data/
 └── site.ts # Site content (projects, experience, about info)
-
-
+'''
+---
 
 ## Features
 
