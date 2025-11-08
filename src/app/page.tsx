@@ -34,8 +34,7 @@ export default function Home() {
           <p className="text-lg text-white/80">
             I&#39;m a fifth-year Computer Engineering student at Queen&#39;s University, focused on{" "}
             <span className="font-medium text-white">backend systems</span> and{" "}
-            <span className="font-medium text-white">applied AI/ML</span>. My passion is building
-            fast, reliable services — the kind of system-level code that runs clean, especially with real-time data.
+            <span className="font-medium text-white">applied AI/ML</span>. My true passion is building technology that has real-world impact — reliable systems that empower people and make processes genuinely better.
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -86,21 +85,21 @@ export default function Home() {
         <h2 className="text-2xl font-semibold text-white mb-6">Technical Focus</h2>
         <div className="grid gap-6 md:grid-cols-3">
         <Card>
-          <div className="code-accent mb-2">{`// backend & data`}</div>
+          <div className="code-accent mb-2">{`// backend systems & data`}</div>
           <p className="text-sm text-white/80">
-            Design and build type-safe APIs, optimized data models, and secure authentication for fast, reliable backends.
+            Engineer scalable, type-safe APIs and data models optimized for reliability and performance. Experience with Prisma ORM, PostgreSQL, and API design patterns (auth flows, rate-limits, caching). Strong understanding of systems architecture and asynchronous execution for responsive backend services.
           </p>
         </Card>
         <Card>
-          <div className="code-accent mb-2">{`// automation`}</div>
+          <div className="code-accent mb-2">{`// applied AI & data processing`}</div>
           <p className="text-sm text-white/80">
-            Transform manual workflows into automated systems — from intake forms to real-time dashboards and alerts.
+            Leverage machine learning fundamentals and data pipelines to improve decision-making in applications. Work with Python + scikit-learn for model prototyping and TypeScript/Next.js for real-time data integration.
           </p>
         </Card>
         <Card>
-          <div className="code-accent mb-2">{`// embedded systems`}</div>
+          <div className="code-accent mb-2">{`// embedded & systems programming`}</div>
           <p className="text-sm text-white/80">
-            Hardware-aware programming and system-level optimization, bridging low-level control and scalable software.
+            Apply hardware-aware programming and resource optimization techniques for low-latency control systems. Blend C/C++ fundamentals with modern data-driven software engineering principles.
           </p>
         </Card>
         </div>
