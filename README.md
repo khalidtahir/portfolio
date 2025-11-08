@@ -44,7 +44,7 @@ src/
 └── data/
   └── site.ts # Site content (projects, experience, about info)
 ```
-git
+
 ---
 
 ## Features
