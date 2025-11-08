@@ -42,9 +42,10 @@ src/
 │ ├── TimelineCard.tsx
 │ └── Typewriter.tsx
 └── data/
-└── site.ts # Site content (projects, experience, about info)
+  └── site.ts # Site content (projects, experience, about info)
+```
 
-
+---
 
 ## Features
 
