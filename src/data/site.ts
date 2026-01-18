@@ -69,6 +69,45 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: "Meeting → Actions AI Service",
+    tagline:
+      "REST API that extracts structured action items from meeting transcripts using LLMs",
+    stack: [
+      "Python",
+      "FastAPI",
+      "SQLAlchemy",
+      "Pydantic",
+      "SQLite",
+      "OpenAPI",
+    ],
+    status: "in-progress",
+    links: {
+      repo: "https://github.com/khalidtahir/Meeting-Actions-API",
+    },
+    bullets: [
+      "Designed a REST API using FastAPI with clear resource boundaries.",
+      "Implemented status-based processing (PENDING → PROCESSING → DONE / FAILED).",
+      "Modeled persistent data using SQLAlchemy ORM.",
+      "Enforced strict request and response validation with Pydantic schemas.",
+      "Integrated LLM-based extraction behind a mockable AI interface.",
+      "Built deterministic mock mode to enable testing without API keys or cost.",
+      "Designed as an extensible MVP with a clear path toward a hosted SaaS offering.",
+    ],
+  },
+  {
+    title: "iOS-Based Centralized Monitoring Hub (Capstone)",
+    tagline: "Status: In development.",
+    stack: ["iOS", "Real-time", "Multi-sensor", "Data Sync"],
+    status: "in-progress",
+    bullets: [
+      "Real-time signal acquisition from multiple sources (e.g., laptops, Bluetooth wearables).",
+      "Accurate time-stamping and synchronization across devices for coherent visualization.",
+      "Responsive UI to display simultaneous streams (charts, gauges, alerts).",
+      "Modular design for clinical monitoring and multi-sensor research/fitness use cases.",
+      "Impact: improves monitoring efficiency and response in high-stakes environments and enables comprehensive physiological research.",
+    ],
+  },
+  {
     title: "ChoTime (Fitness App)",
     tagline:
       "Track workouts, meals, and progress with a clean API and typed data model.",
@@ -110,19 +149,6 @@ export const projects: Project[] = [
     bullets: [
       "Custom sections (typewriter hero, cards), clean routing, and lint-clean builds.",
       "Deployed on Vercel with custom domain (khalidtahir.com).",
-    ],
-  },
-  {
-    title: "iOS-Based Centralized Monitoring Hub (Capstone)",
-    tagline: "Status: In development.",
-    stack: ["iOS", "Real-time", "Multi-sensor", "Data Sync"],
-    status: "in-progress",
-    bullets: [
-      "Real-time signal acquisition from multiple sources (e.g., laptops, Bluetooth wearables).",
-      "Accurate time-stamping and synchronization across devices for coherent visualization.",
-      "Responsive UI to display simultaneous streams (charts, gauges, alerts).",
-      "Modular design for clinical monitoring and multi-sensor research/fitness use cases.",
-      "Impact: improves monitoring efficiency and response in high-stakes environments and enables comprehensive physiological research.",
     ],
   },
 ];
