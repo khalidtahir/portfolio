@@ -23,7 +23,7 @@ export type Project = {
   title: string
   tagline: string
   stack: string[]
-  status: "live" | "in-progress" | "planned"
+  status: "live" | "in-progress" | "planned" | "completed"
   links?: Partial<Record<"live" | "repo" | "demo", string>>
   bullets?: string[]
 }
@@ -68,43 +68,48 @@ export const experiences: Experience[] = [
 ]
 
 export const projects: Project[] = [
-  {
-    title: "Meeting → Actions AI Service",
-    tagline:
-      "REST API that extracts structured action items from meeting transcripts using LLMs",
-    stack: [
-      "Python",
-      "FastAPI",
-      "SQLAlchemy",
-      "Pydantic",
-      "SQLite",
-      "OpenAPI",
-    ],
-    status: "in-progress",
-    links: {
-      repo: "https://github.com/khalidtahir/Meeting-Actions-API",
-    },
-    bullets: [
-      "Designed a REST API using FastAPI with clear resource boundaries.",
-      "Implemented status-based processing (PENDING → PROCESSING → DONE / FAILED).",
-      "Modeled persistent data using SQLAlchemy ORM.",
-      "Enforced strict request and response validation with Pydantic schemas.",
-      "Integrated LLM-based extraction behind a mockable AI interface.",
-      "Built deterministic mock mode to enable testing without API keys or cost.",
-      "Designed as an extensible MVP with a clear path toward a hosted SaaS offering.",
-    ],
+{
+  title: "Wats Next?",
+  tagline:
+    "Full-stack AI workflow that reconciles meeting transcripts into evolving project action items with human-in-the-loop approval.",
+  stack: [
+    "Python",
+    "FastAPI",
+    "SQLAlchemy",
+    "Pydantic",
+    "PostgreSQL/SQLite",
+    "React",
+    "OpenAI",
+    "Docker",
+    "Docker Compose",
+    "REST API"
+  ],
+  status: "completed",
+  links: {
+    repo: "https://github.com/khalidtahir/Meeting-Actions-API",
   },
+  bullets: [
+    "Architected a proposal-based AI reconciliation engine that compares new meeting transcripts against persistent project state.",
+    "Designed a human-in-the-loop workflow separating AI 'proposal' from 'apply' to prevent direct LLM state mutation.",
+    "Built typed REST endpoints in FastAPI for project CRUD, action retrieval, and AI reconciliation workflows.",
+    "Implemented structured JSON validation of LLM responses using Pydantic to enforce deterministic data contracts.",
+    "Persisted evolving action state using SQLAlchemy ORM with relational modeling.",
+    "Developed a React frontend with side-by-side proposal comparison and approval interface.",
+    "Containerized the entire system using Docker Compose for single-command full-stack deployment.",
+    "Designed the system with clear separation of concerns: HTTP layer, business logic, AI layer, and persistence layer."
+  ],
+},
   {
-    title: "iOS-Based Centralized Monitoring Hub (Capstone)",
-    tagline: "Status: In development.",
-    stack: ["iOS", "Real-time", "Multi-sensor", "Data Sync"],
-    status: "in-progress",
+    title: "RN Sync – Real-Time Patient Monitoring System (Capstone)",
+    tagline: "Serverless architecture for synchronized multi-sensor health data streaming.",
+    stack: ["React Native", "AWS Lambda", "API Gateway", "WebSockets", "AWS Cognito", "Supabase"],
+    status: "completed",
     bullets: [
-      "Real-time signal acquisition from multiple sources (e.g., laptops, Bluetooth wearables).",
-      "Accurate time-stamping and synchronization across devices for coherent visualization.",
-      "Responsive UI to display simultaneous streams (charts, gauges, alerts).",
-      "Modular design for clinical monitoring and multi-sensor research/fitness use cases.",
-      "Impact: improves monitoring efficiency and response in high-stakes environments and enables comprehensive physiological research.",
+      "Built a real-time patient monitoring system that synchronizes multiple physiological data streams into a single mobile interface.",
+      "Implemented a serverless backend using AWS Lambda and API Gateway with WebSocket streaming for low-latency data updates.",
+      "Developed secure authentication using AWS Cognito to protect patient data and manage device connections.",
+      "Designed a React Native mobile app to visualize synchronized sensor streams with responsive charts and real-time updates.",
+      "Impact: Demonstrates a scalable architecture for healthcare monitoring systems capable of integrating multiple medical sensors and supporting real-time clinical decision-making.",
     ],
   },
   {
@@ -118,23 +123,23 @@ export const projects: Project[] = [
       "Domain model for workouts/meals/sessions; daily aggregates & trends.",
       "REST/Server Actions API with auth, input validation, and rate-limits.",
       "Prisma schema with relational entities and future ML hooks (recommendations).",
-      "Status: Coming soon (shipping this month).",
+      "Status: Coming soon (shipping in May).",
     ],
   },
 
   {
-    title: "Song Ranking Project",
-    tagline: "Interactive pairwise ranking of songs per album (React + Vite).",
+    title: "Interactive Song Ranking Tool",
+    tagline: "Pairwise comparison system for building ranked lists efficiently.",
     stack: ["React", "Vite", "JavaScript"],
-    status: "in-progress",
+    status: "completed",
     links: {
       repo: "https://github.com/khalidtahir/rankingProject",
-      // add live link here if i decide to deploy it
     },
     bullets: [
-      "Binary-search style placement: compare a new song against the ranked list to insert at the right position.",
-      "Local dataset for Travis Scott albums; album art served from /public/album-covers.",
-      "Stateful UI with ranked/unranked queues and a comparison view.",
+      "Built an interactive ranking system where users compare songs head-to-head to generate a personalized ordered list.",
+      "Implemented a binary-search style insertion algorithm that minimizes comparisons while placing songs in the correct rank.",
+      "Developed a dynamic React interface with ranked and unranked queues and a comparison view for fast decision making.",
+      "Structured a modular dataset for albums and artwork, enabling easy expansion to other artists or media categories.",
     ],
   },
   {

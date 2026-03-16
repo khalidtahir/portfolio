@@ -69,7 +69,7 @@ export default function BackgroundPage() {
       {/* Experience */}
       <Section title="Experience">
         <TimelineCard
-          title="Part-Time Developer"
+          title="Software Developer"
           subtitle="Queen’s University IT Services — Information Security Office"
           date="Sep 2025 – Present"
           description="Leading web development for a new internal Cybersecurity Hub initiative under the Information Security Office."
