@@ -69,15 +69,17 @@ export default function BackgroundPage() {
       {/* Experience */}
       <Section title="Experience">
         <TimelineCard
-          title="Software Developer"
+          title="Web Developer"
           subtitle="Queen’s University IT Services — Information Security Office"
-          date="Sep 2025 – Present"
-          description="Leading web development for a new internal Cybersecurity Hub initiative under the Information Security Office."
+          date="Sep 2025 – Jun 2026"
+          description="Lead developer for a university-wide Cybersecurity Hub initiative supporting students, staff, and faculty under the Information Security Office."
           highlights={[
-            "Designing SharePoint site architecture using SPFx, including user-based redirect logic for students, staff, and faculty.",
-            "Collaborating with the Information Security team to implement secure and scalable site components.",
-            "Contributing to UI/UX design to align the hub’s navigation, layout, and content structure with Queen’s branding.",
-            "Tools: SharePoint Framework (SPFx) · TypeScript · React · UI/UX Design · SharePoint Online"
+            "Designed and implemented SharePoint Framework (SPFx) solutions using React and TypeScript, including role-based audience targeting and secure user redirection.",
+            "Developed dynamic cybersecurity awareness applications, including an interactive risk-assessment quiz with audience-specific content, scoring logic, and local persistence.",
+            "Architected a SharePoint List–driven content management model enabling non-technical stakeholders to manage quiz questions, feedback, and learning resources without code changes or redeployments.",
+            "Collaborated with cybersecurity and communications stakeholders to design site navigation, content structure, and user experiences aligned with university branding and accessibility standards.",
+            "Evaluated and implemented scalable SharePoint Online solutions balancing maintainability, security requirements, and long-term operational support.",
+            "Tools: SharePoint Framework (SPFx) · React · TypeScript · SharePoint Online · UI/UX Design",
           ]}
           isExperience={true}
         />
@@ -102,7 +104,7 @@ export default function BackgroundPage() {
         <TimelineCard
           title="Outreach Director"
           subtitle="MENAQ (Middle Eastern and North African Students at Queen's)"
-          date="Sep 2025 – Present"
+          date="Sep 2025 – Apr 2026"
           description="Promoting cultural connection and inclusivity through community events, collaborations, and outreach initiatives across campus."
         />
 
@@ -115,17 +117,4 @@ export default function BackgroundPage() {
       </Section>
 
       {/* Education */}
-      <Section title="Education">
-        <TimelineCard
-          title="Smith School of Engineering, Queen's University"
-          subtitle="Bachelor of Applied Science (BASc), Computer Engineering"
-          date="Sep 2021 – May 2026"
-          description="Specializing in Software Engineering: Option in Artificial Intelligence and Computer Systems"
-          highlights={[
-            "Relevant coursework: Machine Learning w/ Deep Vision, Artificial Intelligence, Data Structures & Algorithms, Software Requirements, and Distributed Systems.",
-          ]}
-        />
-      </Section>
-    </div>
-  );
-}
+      <Section title="Educa
