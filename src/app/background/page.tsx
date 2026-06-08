@@ -70,13 +70,13 @@ export default function BackgroundPage() {
       <Section title="Experience">
         <TimelineCard
           title="Web Developer"
-          subtitle="Queen’s University IT Services — Information Security Office"
+          subtitle="Queen's University IT Services — Information Security Office"
           date="Sep 2025 – Jun 2026"
           description="Lead developer for a university-wide Cybersecurity Hub initiative supporting students, staff, and faculty under the Information Security Office."
           highlights={[
             "Designed and implemented SharePoint Framework (SPFx) solutions using React and TypeScript, including role-based audience targeting and secure user redirection.",
             "Developed dynamic cybersecurity awareness applications, including an interactive risk-assessment quiz with audience-specific content, scoring logic, and local persistence.",
-            "Architected a SharePoint List–driven content management model enabling non-technical stakeholders to manage quiz questions, feedback, and learning resources without code changes or redeployments.",
+            "Architected a SharePoint List-driven content management model enabling non-technical stakeholders to manage quiz questions, feedback, and learning resources without code changes or redeployments.",
             "Collaborated with cybersecurity and communications stakeholders to design site navigation, content structure, and user experiences aligned with university branding and accessibility standards.",
             "Evaluated and implemented scalable SharePoint Online solutions balancing maintainability, security requirements, and long-term operational support.",
             "Tools: SharePoint Framework (SPFx) · React · TypeScript · SharePoint Online · UI/UX Design",
@@ -86,9 +86,9 @@ export default function BackgroundPage() {
 
         <TimelineCard
           title="IT Project Manager Intern"
-          subtitle="Queen’s University IT Services"
+          subtitle="Queen's University IT Services"
           date="May 2024 – Sep 2025"
-          description="Developed a fully automated operating plan management system connecting Microsoft Forms → Power Automate → SharePoint → Power BI, cutting intake processing from 4–5 months to under 4 weeks and earning recognition from the CIO for delivering the fastest annual planning cycle in department history."
+          description="Developed a fully automated operating plan management system connecting Microsoft Forms to Power Automate to SharePoint to Power BI, cutting intake processing from 4-5 months to under 4 weeks and earning recognition from the CIO for delivering the fastest annual planning cycle in department history."
           highlights={[
             "Designed and implemented a Lessons Learned Repository, replacing static Excel sheets with a dynamic SharePoint automation flow for data submission and filtering, improving accessibility and knowledge sharing across departments.",
             "Built a RAID Log automation system (Risks, Actions, Issues, Decisions) using Power Automate and SharePoint to automate data population and tracking for leadership reporting.",
@@ -97,7 +97,7 @@ export default function BackgroundPage() {
             "Conducted UAT for Salesforce enhancements including the international student applicant portal and Einstein chatbot, identifying and resolving critical pre-launch issues.",
             "Tools: Power Automate · SharePoint · Power BI · Azure DevOps · Salesforce",
           ]}
-          award="🏆 Student Spotlight Award — recognized for excellence in contributions to the department."
+          award="Student Spotlight Award — recognized for excellence in contributions to the department."
           isExperience={true}
         />
 
@@ -112,9 +112,22 @@ export default function BackgroundPage() {
           title="Varsity Athlete"
           subtitle="Queen's Varsity Rugby Club"
           date="2022 – 2024"
-          description="Represented Queen’s in intercollegiate competition; developed leadership, teamwork, and discipline through two active seasons."
+          description="Represented Queen's in intercollegiate competition; developed leadership, teamwork, and discipline through two active seasons."
         />
       </Section>
 
       {/* Education */}
-      <Section title="Educa
+      <Section title="Education">
+        <TimelineCard
+          title="Smith School of Engineering, Queen's University"
+          subtitle="Bachelor of Applied Science (BASc), Computer Engineering"
+          date="Sep 2021 – May 2026"
+          description="Specialized in Software Engineering: Option in Artificial Intelligence and Computer Systems"
+          highlights={[
+            "Relevant coursework: Machine Learning w/ Deep Vision, Artificial Intelligence, Data Structures and Algorithms, Software Requirements, and Distributed Systems.",
+          ]}
+        />
+      </Section>
+    </div>
+  );
+}
