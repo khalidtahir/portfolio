@@ -121,7 +121,7 @@ export default function BackgroundPage() {
         <TimelineCard
           title="Smith School of Engineering, Queen's University"
           subtitle="Bachelor of Applied Science (BASc), Computer Engineering"
-          date="Sep 2021 – May 2026"
+          date="Sep 2021 – Present"
           description="Specialized in Software Engineering: Option in Artificial Intelligence and Computer Systems"
           highlights={[
             "Relevant coursework: Machine Learning w/ Deep Vision, Artificial Intelligence, Data Structures and Algorithms, Software Requirements, and Distributed Systems.",

@@ -32,12 +32,9 @@ export default function Home() {
             <Typewriter text={"hey, i’m khalid — welcome to my portfolio()"} />
           </h1>
           <p className="text-lg text-white/80">
-            I recently completed my{" "}
-            <span className="font-medium text-white">BASc in Computer Engineering</span> at Queen&#39;s University. I&#39;m focused on{" "}
-            <span className="font-medium text-white">software engineering</span>,{" "}
-            <span className="font-medium text-white">backend systems</span>,{" "}
-            <span className="font-medium text-white">AI</span>, and{" "}
-            <span className="font-medium text-white">technical product development</span> — building reliable systems that empower people and make processes genuinely better.
+            I&#39;m a Computer Engineering student at Queen&#39;s University, focused on{" "}
+            <span className="font-medium text-white">backend systems</span> and{" "}
+            <span className="font-medium text-white">applied AI/ML</span>. My true passion is building technology that has real-world impact — reliable systems that empower people and make processes genuinely better.
           </p>
 
           <div className="flex flex-wrap gap-2">
