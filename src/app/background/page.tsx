@@ -1,133 +1,56 @@
-// src/app/background/page.tsx
-import Section from "@/components/Section";
+import type { Metadata } from "next"
+import Section from "@/components/Section"
+import TimelineCard from "@/components/TimelineCard"
+import { activities, education, experiences } from "@/data/site"
 
-function TimelineCard({
-  title,
-  subtitle,
-  date,
-  description,
-  highlights,
-  award,
-  isExperience = false,
-}: {
-  title: string;
-  subtitle: string;
-  date: string;
-  description?: string;
-  highlights?: string[];
-  award?: string;
-  isExperience?: boolean;
-}) {
-  return (
-    <div
-      className={`relative pl-8 border-l ${
-        isExperience ? "border-blue-500/40" : "border-gray-600/40"
-      } pb-10`}
-    >
-      <span
-        className={`absolute left-[-6px] top-1.5 h-3 w-3 rounded-full ${
-          isExperience
-            ? "bg-blue-400 shadow-[0_0_10px_2px_rgba(59,130,246,0.7)]"
-            : "bg-gray-400 shadow-[0_0_6px_1px_rgba(255,255,255,0.2)]"
-        }`}
-      ></span>
-
-      <div
-        className={`card transition-all ${
-          isExperience
-            ? "p-8 hover:shadow-[0_0_25px_-5px_rgba(59,130,246,0.5)]"
-            : "p-6 hover:shadow-[0_0_20px_-5px_rgba(255,255,255,0.2)]"
-        }`}
-      >
-        <h3 className="text-xl font-semibold text-white">{title}</h3>
-        <p className="text-white/70 text-sm">{subtitle}</p>
-        <p className="text-xs text-white/60 mt-1">{date}</p>
-
-        {description && (
-          <p className="text-white/80 mt-3 leading-relaxed">{description}</p>
-        )}
-
-        {highlights && (
-          <ul className="list-disc list-inside text-white/70 mt-3 space-y-1">
-            {highlights.map((h, i) => (
-              <li key={i}>{h}</li>
-            ))}
-          </ul>
-        )}
-
-        {award && (
-          <p className="text-amber-400/90 italic text-sm mt-3">{award}</p>
-        )}
-      </div>
-    </div>
-  );
+export const metadata: Metadata = {
+  title: "Background",
+  description:
+    "Experience and education: Software Engineer Intern at Scotiabank, Queen's University IT Services roles, and a BASc in Computer Engineering from Queen's.",
 }
 
 export default function BackgroundPage() {
   return (
-    <div className="space-y-12">
-      {/* Experience */}
-      <Section title="Experience">
-        <TimelineCard
-          title="Web Developer"
-          subtitle="Queen's University IT Services — Information Security Office"
-          date="Sep 2025 – Jun 2026"
-          description="Lead developer for a university-wide Cybersecurity Hub initiative supporting students, staff, and faculty under the Information Security Office."
-          highlights={[
-            "Designed and implemented SharePoint Framework (SPFx) solutions using React and TypeScript, including role-based audience targeting and secure user redirection.",
-            "Developed dynamic cybersecurity awareness applications, including an interactive risk-assessment quiz with audience-specific content, scoring logic, and local persistence.",
-            "Architected a SharePoint List-driven content management model enabling non-technical stakeholders to manage quiz questions, feedback, and learning resources without code changes or redeployments.",
-            "Collaborated with cybersecurity and communications stakeholders to design site navigation, content structure, and user experiences aligned with university branding and accessibility standards.",
-            "Evaluated and implemented scalable SharePoint Online solutions balancing maintainability, security requirements, and long-term operational support.",
-            "Tools: SharePoint Framework (SPFx) · React · TypeScript · SharePoint Online · UI/UX Design",
-          ]}
-          isExperience={true}
-        />
+    <div>
+      <h1 className="mb-8 text-3xl font-bold text-white">Background</h1>
 
-        <TimelineCard
-          title="IT Project Manager Intern"
-          subtitle="Queen's University IT Services"
-          date="May 2024 – Sep 2025"
-          description="Developed a fully automated operating plan management system connecting Microsoft Forms to Power Automate to SharePoint to Power BI, cutting intake processing from 4-5 months to under 4 weeks and earning recognition from the CIO for delivering the fastest annual planning cycle in department history."
-          highlights={[
-            "Designed and implemented a Lessons Learned Repository, replacing static Excel sheets with a dynamic SharePoint automation flow for data submission and filtering, improving accessibility and knowledge sharing across departments.",
-            "Built a RAID Log automation system (Risks, Actions, Issues, Decisions) using Power Automate and SharePoint to automate data population and tracking for leadership reporting.",
-            "Created and maintained Power BI dashboards for executives and project managers, providing real-time visibility across 300+ projects by status, completion forecasts, and overdue items.",
-            "Coordinated Agile ceremonies for a university-wide Salesforce (ECRM) rollout, managing sprint planning, backlog refinement, and RAID tracking as a liaison between internal teams and consultants.",
-            "Conducted UAT for Salesforce enhancements including the international student applicant portal and Einstein chatbot, identifying and resolving critical pre-launch issues.",
-            "Tools: Power Automate · SharePoint · Power BI · Azure DevOps · Salesforce",
-          ]}
-          award="Student Spotlight Award — recognized for excellence in contributions to the department."
-          isExperience={true}
-        />
+      <Section title="Experience" id="experience">
+        {experiences.map((e) => (
+          <TimelineCard
+            key={`${e.org}-${e.role}`}
+            title={e.role}
+            subtitle={e.team ? `${e.org} · ${e.team}` : e.org}
+            date={`${e.start} – ${e.end}`}
+            current={e.current}
+            description={e.summary}
+            highlights={e.highlights}
+            tools={e.tools}
+          />
+        ))}
+      </Section>
 
+      <Section title="Education" id="education">
         <TimelineCard
-          title="Outreach Director"
-          subtitle="MENAQ (Middle Eastern and North African Students at Queen's)"
-          date="Sep 2025 – Apr 2026"
-          description="Promoting cultural connection and inclusivity through community events, collaborations, and outreach initiatives across campus."
-        />
-
-        <TimelineCard
-          title="Varsity Athlete"
-          subtitle="Queen's Varsity Rugby Club"
-          date="2022 – 2024"
-          description="Represented Queen's in intercollegiate competition; developed leadership, teamwork, and discipline through two active seasons."
+          title={education.school}
+          subtitle={`${education.unit} · ${education.degree}`}
+          date={`${education.start} – ${education.end}`}
+          description={education.specialization}
+          highlights={[`Relevant coursework: ${education.courses.join(", ")}.`]}
         />
       </Section>
 
-      {/* Education */}
-      <Section title="Education">
-        <TimelineCard
-          title="Smith School of Engineering, Queen's University"
-          subtitle="Bachelor of Applied Science (BASc), Computer Engineering"
-          date="Sep 2021 – Present"
-          description="Specialized in Software Engineering: Option in Artificial Intelligence and Computer Systems"
-          highlights={[
-            "Relevant coursework: Machine Learning w/ Deep Vision, Artificial Intelligence, Data Structures and Algorithms, Software Requirements, and Distributed Systems.",
-          ]}
-        />
-      </Section>
+      <section aria-labelledby="activities-heading" className="border-t border-white/10 pt-8">
+        <h2 id="activities-heading" className="mb-3 text-lg font-semibold text-white/90">
+          Leadership & activities
+        </h2>
+        <ul className="space-y-1.5 text-sm">
+          {activities.map((a) => (
+            <li key={a.org} className="text-white/75">
+              <span className="font-medium text-white">{a.title}</span>, {a.org} · {a.dates}
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
-  );
+  )
 }

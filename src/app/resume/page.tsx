@@ -1,27 +1,39 @@
-// src/app/resume/page.tsx
+import type { Metadata } from "next"
+import { ButtonLink } from "@/components/ui"
+import { RESUME_PATH } from "@/data/site"
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description: "Preview or download the latest resume of Khalid Tahir, Software Engineer Intern at Scotiabank.",
+}
+
 export default function Resume() {
   return (
-    <section className="space-y-4">
-      <h1 className="text-3xl font-bold">Resume</h1>
-      <p className="text-gray-600">
-        A concise summary of my skills, experience, and education.
-      </p>
+    <div>
+      <h1 className="mb-2 text-3xl font-bold text-white">Resume</h1>
+      <p className="mb-6 max-w-2xl text-white/80">The latest version of my resume, one page.</p>
 
-      <h2 className="text-xl font-semibold">Highlights</h2>
-      <ul className="list-disc list-inside space-y-1">
-        <li>Backend-first builder: typed APIs (TypeScript), Prisma + PostgreSQL, auth, rate limits.</li>
-        <li>Practical ML: evaluation-first workflows; scikit-learn notebooks & course projects.</li>
-        <li>ChoTime: fitness app for workouts/meals with clean schema and future ML hooks.</li>
-        <li>Operating-plan automation: Forms → SharePoint → Power BI; 300+ projects tracked.</li>
-      </ul>
+      <div className="mb-6 flex flex-wrap gap-3">
+        <ButtonLink href={RESUME_PATH} variant="primary" download>
+          Download PDF
+        </ButtonLink>
+        <ButtonLink href={RESUME_PATH} external>
+          Open in new tab
+        </ButtonLink>
+      </div>
 
-      <a
-        href="/Resume.pdf"
-        className="inline-block rounded-xl border px-4 py-2 underline"
-        download
-      >
-        Download PDF
-      </a>
-    </section>
+      {/* Inline PDF preview; many phone browsers can't render it, so the buttons above are the fallback. */}
+      <div className="card hidden overflow-hidden md:block">
+        <object data={`${RESUME_PATH}#view=FitH`} type="application/pdf" className="h-[80vh] w-full" aria-label="Resume PDF preview">
+          <p className="p-6 text-white/80">
+            Your browser can&apos;t display the PDF inline.{" "}
+            <a className="link" href={RESUME_PATH}>
+              Download the resume instead
+            </a>
+            .
+          </p>
+        </object>
+      </div>
+    </div>
   )
 }

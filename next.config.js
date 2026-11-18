@@ -1,11 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: false,
+  async redirects() {
+    return [
+      // Backward compatibility: the resume used to be served at /Resume.pdf.
+      {
+        source: "/Resume.pdf",
+        destination: "/Khalid_Tahir_Resume.pdf",
+        permanent: true,
+      },
+    ];
   },
-  experimental: {
-    typedRoutes: true,
-  },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

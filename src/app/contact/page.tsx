@@ -1,46 +1,49 @@
-// src/app/contact/page.tsx
-export default function Contact() {
-  return (
-    <section className="space-y-6">
-      <h1 className="text-3xl font-bold">Contact</h1>
-      <p className="text-gray-600">
-        Feel free to reach out for collaboration, opportunities, or questions about my work.
-      </p>
+import type { Metadata } from "next"
+import { ButtonLink } from "@/components/ui"
+import { RESUME_PATH, profile } from "@/data/site"
 
-      <div className="space-y-2">
-        <p>
-          <strong>Email:</strong>{" "}
-          <a
-            href="mailto:khalid.h.tahir@gmail.com"
-            className="underline text-blue-600"
-          >
-            khalid.h.tahir@gmail.com
-          </a>
-        </p>
-        <p>
-          <strong>LinkedIn:</strong>{" "}
-          <a
-            href="https://www.linkedin.com/in/khalidtahir1/"
-            className="underline text-blue-600"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            linkedin.com/in/khalidtahir1
-          </a>
-        </p>
-        <p>
-          <strong>GitHub:</strong>{" "}
-          <a
-            href="https://github.com/khalidtahir"
-            className="underline text-blue-600"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            github.com/khalidtahir
-          </a>
-        </p>
-      </div>
-    </section>
-  )
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Khalid Tahir by email, LinkedIn, or GitHub.",
 }
 
+export default function Contact() {
+  const items = [
+    { label: "Email", text: profile.email, href: `mailto:${profile.email}`, external: false },
+    { label: "LinkedIn", text: "linkedin.com/in/khalidtahir1", href: profile.linkedin, external: true },
+    { label: "GitHub", text: "github.com/khalidtahir", href: profile.github, external: true },
+  ]
+
+  return (
+    <div className="max-w-2xl">
+      <h1 className="mb-2 text-3xl font-bold text-white">Contact</h1>
+      <p className="mb-6 text-white/80">
+        Happy to talk about software engineering roles, collaboration, or my projects. Email is the fastest way to reach me.
+      </p>
+
+      <dl className="card divide-y divide-white/10">
+        {items.map((i) => (
+          <div key={i.label} className="flex flex-wrap items-baseline justify-between gap-2 px-5 py-4">
+            <dt className="font-semibold text-white">{i.label}</dt>
+            <dd>
+              <a
+                className="link"
+                href={i.href}
+                {...(i.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
+                {i.text}
+                {i.external && <span className="sr-only"> (opens in a new tab)</span>}
+              </a>
+            </dd>
+          </div>
+        ))}
+      </dl>
+
+      <div className="mt-6">
+        <ButtonLink href={RESUME_PATH} variant="primary" download>
+          Download resume
+        </ButtonLink>
+      </div>
+    </div>
+  )
+}

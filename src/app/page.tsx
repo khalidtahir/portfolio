@@ -1,163 +1,130 @@
-// src/app/page.tsx
-import Link from "next/link";
-import Image from "next/image";
-import Typewriter from "@/components/Typewriter";
-
-const HEADSHOT = "/headshot.jpg";
-
-function Pill({ children }: { children: React.ReactNode }) {
-  return <span className="pill">{children}</span>;
-}
-
-function Card({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return <div className={`card p-6 ${className}`}>{children}</div>;
-}
+import Image from "next/image"
+import Link from "next/link"
+import Section from "@/components/Section"
+import ProjectCard from "@/components/ProjectCard"
+import { ButtonLink, Card, Pill } from "@/components/ui"
+import { RESUME_PATH, experiences, outsideOfWork, profile, projects, skills } from "@/data/site"
 
 export default function Home() {
+  const current = experiences.find((e) => e.current)
+  const featured = projects.filter((p) => p.featured)
+
   return (
-    <div className="min-h-[calc(100vh-6rem)]">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_10%_10%,rgba(59,130,246,0.20),transparent_60%),radial-gradient(50%_50%_at_90%_20%,rgba(16,185,129,0.18),transparent_55%)]"></div>
-
+    <div>
       {/* HERO */}
-      <section className="grid gap-8 md:grid-cols-[1.1fr_.9fr] items-center">
-        <div className="space-y-5 max-w-2xl">
-          <div className="code-accent">{`// welcome`}</div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
-            <Typewriter text={"hey, i’m khalid — welcome to my portfolio()"} />
+      <section aria-labelledby="hero-heading" className="grid items-center gap-8 pb-12 md:grid-cols-[1.2fr_.8fr]">
+        <div className="max-w-2xl space-y-5">
+          <h1 id="hero-heading" className="text-4xl font-bold tracking-tight text-white md:text-6xl">
+            {profile.name}
           </h1>
-          <p className="text-lg text-white/80">
-            I&#39;m a Computer Engineering student at Queen&#39;s University, focused on{" "}
-            <span className="font-medium text-white">backend systems</span> and{" "}
-            <span className="font-medium text-white">applied AI/ML</span>. My true passion is building technology that has real-world impact — reliable systems that empower people and make processes genuinely better.
+          <p className="text-xl font-medium text-white">
+            {profile.role} at {profile.company}
           </p>
+          <p className="text-lg leading-relaxed text-white/80">{profile.summary}</p>
 
-          <div className="flex flex-wrap gap-2">
-            <Pill>Backend APIs (TypeScript)</Pill>
-            <Pill>Prisma + PostgreSQL</Pill>
-            <Pill>Auth &amp; Rate Limits</Pill>
-            <Pill>Automation &amp; Dashboards</Pill>
-            <Pill>Embedded Systems</Pill>
-            <Pill>ML Fundamentals</Pill>
-          </div>
+          <ul className="flex flex-wrap gap-2" aria-label="Core technologies">
+            {profile.focusTags.map((t) => (
+              <li key={t}>
+                <Pill>{t}</Pill>
+              </li>
+            ))}
+          </ul>
 
-          <div className="flex gap-3 pt-2">
-            <Link
-              href="/projects"
-              className="rounded-xl bg-white text-black px-5 py-3 text-sm font-semibold hover:bg-white/90 transition shadow"
-            >
-              View Projects
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/5 transition"
-            >
-              Contact
-            </Link>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <ButtonLink href={RESUME_PATH} variant="primary">
+              Resume (PDF)
+            </ButtonLink>
+            <ButtonLink href={profile.github} external>
+              GitHub
+            </ButtonLink>
+            <ButtonLink href={profile.linkedin} external>
+              LinkedIn
+            </ButtonLink>
+            <ButtonLink href={`mailto:${profile.email}`}>Email</ButtonLink>
           </div>
         </div>
 
-        {/* Headshot */}
-        <Card className="justify-self-center w-full max-w-[380px] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+        <Card className="w-full max-w-[340px] justify-self-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
-            <Image
-              src={HEADSHOT}
-              alt="Khalid headshot"
-              fill
-              sizes="380px"
-              className="object-cover"
-              priority
-            />
+            <Image src="/headshot.jpg" alt="Portrait of Khalid Tahir" fill sizes="340px" className="object-cover" priority />
           </div>
-          <div className="mt-3 text-center text-sm text-white/70">
-            Based in GTA · Open to Backend &amp; ML roles
-          </div>
+          <p className="mt-3 text-center text-sm text-white/75">
+            {profile.location}
+          </p>
         </Card>
       </section>
 
-      {/* TECH HIGHLIGHTS */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-semibold text-white mb-6">Technical Focus</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-        <Card>
-          <div className="code-accent mb-2">{`// backend systems & data`}</div>
-          <p className="text-sm text-white/80">
-            Engineer scalable, type-safe APIs and data models optimized for reliability and performance. Experience with Prisma ORM, PostgreSQL, and API design patterns (auth flows, rate-limits, caching). Strong understanding of systems architecture and asynchronous execution for responsive backend services.
-          </p>
-        </Card>
-        <Card>
-          <div className="code-accent mb-2">{`// applied AI & data processing`}</div>
-          <p className="text-sm text-white/80">
-            Leverage machine learning fundamentals and data pipelines to improve decision-making in applications. Work with Python + scikit-learn for model prototyping and TypeScript/Next.js for real-time data integration.
-          </p>
-        </Card>
-        <Card>
-          <div className="code-accent mb-2">{`// embedded & systems programming`}</div>
-          <p className="text-sm text-white/80">
-            Apply hardware-aware programming and resource optimization techniques for low-latency control systems. Blend C/C++ fundamentals with modern data-driven software engineering principles.
-          </p>
-        </Card>
+      {/* CURRENT ROLE */}
+      {current && (
+        <Section title="Currently" id="current">
+          <Card>
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="text-lg font-semibold text-white">
+                {current.role}, {current.org}
+              </h3>
+              <p className="text-sm text-white/70">
+                {current.start} – {current.end}
+              </p>
+            </div>
+            <p className="mt-2 text-white/80">{current.summary}</p>
+            <p className="mt-3 text-sm">
+              <Link href="/background" className="link">
+                See full experience
+              </Link>
+            </p>
+          </Card>
+        </Section>
+      )}
+
+      {/* FEATURED PROJECTS */}
+      <Section title="Featured projects" id="featured">
+        <div className="grid gap-6 lg:grid-cols-3">
+          {featured.map((p) => (
+            <ProjectCard key={p.title} project={p} compact />
+          ))}
         </div>
-      </section>
+        <p>
+          <Link href="/projects" className="link">
+            View all projects with technical details
+          </Link>
+        </p>
+      </Section>
+
+      {/* SKILLS */}
+      <Section title="Technical skills" id="skills">
+        <div className="card grid gap-5 p-6 sm:grid-cols-2">
+          {skills.map((g) => (
+            <div key={g.group}>
+              <h3 className="code-accent mb-2">{g.group}</h3>
+              <ul className="flex flex-wrap gap-2">
+                {g.items.map((i) => (
+                  <li key={i}>
+                    <Pill>{i}</Pill>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* OUTSIDE OF WORK */}
-      <section className="mt-10">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-white">Outside of work</h2>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Soccer */}
-          <Card>
-            <a href="/soccer.jpg" target="_blank" rel="noopener noreferrer">
-              <div className="relative h-56 overflow-hidden rounded-xl">
-                <Image src="/soccer.jpg" alt="Soccer" fill sizes="300px" className="object-cover hover:scale-105 transition-transform" />
+      <section id="outside" aria-labelledby="outside-heading" className="mt-4 border-t border-white/10 pt-8">
+        <h2 id="outside-heading" className="mb-4 text-lg font-semibold text-white/90">
+          Outside of work
+        </h2>
+        <ul className="grid gap-4 sm:grid-cols-3">
+          {outsideOfWork.map((o) => (
+            <li key={o.title} className="flex items-center gap-3">
+              <Image src={o.image} alt={o.alt} width={64} height={64} className="h-16 w-16 shrink-0 rounded-lg object-cover" />
+              <div>
+                <h3 className="text-sm font-semibold text-white">{o.title}</h3>
+                <p className="text-xs text-white/75">{o.text}</p>
               </div>
-            </a>
-            <div className="mt-3">
-              <div className="font-semibold text-white">Soccer</div>
-              <p className="text-sm text-white/70">
-                In my free time I love playing soccer with friends and in competitive leagues.
-              </p>
-            </div>
-          </Card>
-
-          {/* Rugby Game */}
-          <Card>
-            <a href="/rugby.jpg" target="_blank" rel="noopener noreferrer">
-              <div className="relative h-56 overflow-hidden rounded-xl">
-                <Image src="/rugby.jpg" alt="Rugby" fill sizes="300px" className="object-cover hover:scale-105 transition-transform" />
-              </div>
-            </a>
-            <div className="mt-3">
-              <div className="font-semibold text-white">Queen&#39;s Varsity Rugby Club</div>
-              <p className="text-sm text-white/70">
-                Proud former member of the rugby club at Queen&#39;s. I spent two years on the team playing 8-man &amp; prop, and had a blast doing so!
-              </p>
-            </div>
-          </Card>
-
-          {/* Year Exec */}
-          <Card>
-            <a href="/year-exec.jpg" target="_blank" rel="noopener noreferrer">
-              <div className="relative h-56 overflow-hidden rounded-xl">
-                <Image src="/year-exec.jpg" alt="Queen's Engineering Exec" fill sizes="300px" className="object-cover hover:scale-105 transition-transform" />
-              </div>
-            </a>
-            <div className="mt-3">
-              <div className="font-semibold text-white">Queen&#39;s Engineering Society Exec</div>
-              <p className="text-sm text-white/70">
-                I am also very passionate about community and I served as Publicity Manager for my Class of 2025 Year Executive Team.
-              </p>
-            </div>
-          </Card>
-        </div>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
-  );
+  )
 }

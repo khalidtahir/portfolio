@@ -1,24 +1,27 @@
-// src/components/NavLink.tsx
-"use client";
+"use client"
 
-import Link from "next/link";
-import type { ReactNode } from "react";
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import type { ReactNode } from "react"
 
 type NavLinkProps = {
-  href: string;
-  children: ReactNode;
-  className?: string;
-};
+  href: string
+  children: ReactNode
+}
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function NavLink({ href, children, className = "" }: NavLinkProps) {
+export default function NavLink({ href, children }: NavLinkProps) {
+  const pathname = usePathname()
+  const active = pathname === href || pathname.startsWith(`${href}/`)
+
   return (
     <Link
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      href={href as any} // ✅ bypass type without breaking build
-      className={`hover:underline underline-offset-4 decoration-white/30 transition-colors ${className}`}
+      href={href}
+      aria-current={active ? "page" : undefined}
+      className={`rounded px-1 py-1 underline-offset-8 decoration-2 hover:underline ${
+        active ? "text-white underline decoration-emerald-400" : "text-white/75 decoration-white/30 hover:text-white"
+      }`}
     >
       {children}
     </Link>
-  );
+  )
 }

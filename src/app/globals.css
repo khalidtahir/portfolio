@@ -3,14 +3,14 @@
 /* ---- Base theme (dark, editor-like) ---- */
 :root {
   color-scheme: dark;
-  --background: #0b0e14; /* deep editor-like */
+  --background: #0b0e14;
   --foreground: #e6edf3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans); /* from layout.tsx (Geist) */
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -18,7 +18,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    Roboto, "Helvetica Neue", Arial, "Noto Sans";
   min-height: 100vh;
 }
 
@@ -30,66 +30,97 @@ body::before {
   background:
     radial-gradient(1000px 600px at 10% 10%, rgba(56, 189, 248, 0.08), transparent 60%),
     radial-gradient(800px 500px at 90% 15%, rgba(34, 197, 94, 0.08), transparent 55%),
-    linear-gradient(transparent 0, transparent 31px, rgba(255,255,255,0.05) 32px),
-    linear-gradient(90deg, transparent 0, transparent 31px, rgba(255,255,255,0.05) 32px);
+    linear-gradient(transparent 0, transparent 31px, rgba(255, 255, 255, 0.05) 32px),
+    linear-gradient(90deg, transparent 0, transparent 31px, rgba(255, 255, 255, 0.05) 32px);
   background-size: auto, auto, 32px 32px, 32px 32px;
   pointer-events: none;
   z-index: -1;
 }
 
-/* ---- Card + chip aesthetics ---- */
+/* ---- Cards and chips ---- */
 .card {
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 .pill {
   display: inline-block;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
   color: #c9d1d9;
   border-radius: 999px;
-  padding: 6px 10px;
+  padding: 4px 10px;
   font-size: 12px;
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
 }
 
-/* ---- Typewriter caret ---- */
-.typing-caret::after {
-  content: "_";
-  margin-left: 4px;
-  animation: blink 1s steps(2, start) infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
-
-/* ---- Code comment-style section labels ---- */
 .code-accent {
   color: #7ee787;
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
   font-size: 12px;
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: .8;
 }
 
-/* ---- Your hover tweaks ---- */
-a:hover {
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 12px;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.btn-primary {
+  background: #fff;
+  color: #0b0e14;
+}
+.btn-primary:hover {
+  background: #e2e8f0;
+}
+.btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---- Links ---- */
+.link {
+  color: #7dd3fc;
   text-decoration: underline;
   text-underline-offset: 4px;
-  text-decoration-thickness: 1.5px;
-  text-decoration-color: rgba(255,255,255,0.2);
 }
-button:hover {
-  background: rgba(255,255,255,0.06);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+.link:hover {
+  color: #bae6fd;
 }
-/* simple 2-line clamp utility */
-.clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+
+/* ---- Keyboard focus ---- */
+:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: #fff;
+  color: #0b0e14;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 1rem;
 }
