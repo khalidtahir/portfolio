@@ -1,8 +1,6 @@
 // src/data/site.ts
 // Single source of truth for portfolio content.
 
-export type Link = { label: string; href: string }
-
 export const SITE_URL = "https://khalidtahir.com"
 export const RESUME_PATH = "/Khalid_Tahir_Resume.pdf"
 
@@ -10,25 +8,13 @@ export const profile = {
   name: "Khalid Tahir",
   role: "Software Engineer Intern",
   company: "Scotiabank",
-  headline: "Software Engineer Intern at Scotiabank",
   summary:
-    "Recent Computer Engineering graduate from Queen's University. I build backend services, APIs, and AI-assisted applications, with a focus on testing, reliability, and clean design.",
-  location: "Based in the GTA",
+    "Recent Computer Engineering graduate from Queen's University. I build backend services, APIs, and AI-enabled software.",
   email: "khalid.h.tahir@gmail.com",
   github: "https://github.com/khalidtahir",
   linkedin: "https://www.linkedin.com/in/khalidtahir1/",
   siteDescription:
-    "Khalid Tahir is a Software Engineer Intern at Scotiabank and a recent Computer Engineering graduate from Queen's University, building backend services, APIs, and AI-assisted applications.",
-  focusTags: [
-    "Python",
-    "TypeScript",
-    "REST APIs",
-    "FastAPI",
-    "React / React Native",
-    "PostgreSQL",
-    "AWS",
-    "CI/CD",
-  ],
+    "Khalid Tahir is a Software Engineer Intern at Scotiabank and a recent Computer Engineering graduate from Queen's University, building backend services, APIs, and AI-enabled software.",
 }
 
 export type Experience = {
@@ -138,6 +124,15 @@ export type Project = {
   status: ProjectStatus
   statusLabel?: string
   featured?: boolean
+  /** Optional real visual (screenshot/diagram). When absent, a neutral placeholder is shown. */
+  visual?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+    /** Simplified vertical version shown below 640px so diagram text stays readable. */
+    mobile?: { src: string; width: number; height: number }
+  }
   links?: { label: string; href: string }[]
 }
 
@@ -151,18 +146,25 @@ export const projects: Project[] = [
     built:
       "The FastAPI backend (REST endpoints, SQLAlchemy models, Pydantic schemas), the AI reconciliation service, and the React review interface, packaged with Docker Compose.",
     design:
-      "The model never writes to project state directly. It returns a validated proposal, reconciliation is deterministic, and a human approves or edits it before it is applied. LLM calls sit behind a mockable interface, allowing the application to run and validate workflows without requiring live model calls.",
+      "The model never writes to project state directly. It returns a schema-validated proposal, a person reviews it against the current open items, and only then does deterministic code apply it by action ID. LLM calls sit behind a mockable interface, allowing the application to run and validate workflows without requiring live model calls.",
     stack: ["Python", "FastAPI", "SQLAlchemy", "Pydantic", "React", "SQLite / PostgreSQL", "Docker Compose"],
     status: "completed",
     featured: true,
+    visual: {
+      src: "/projects/wats-next-workflow.svg",
+      alt: "Wats Next workflow: a meeting transcript and the current open actions go to an AI proposal, which a person reviews against the current state. Approving applies the changes with deterministic code and saves the action items; rejecting with feedback produces a revised proposal. The model proposes, a person approves, code applies.",
+      width: 960,
+      height: 600,
+      mobile: { src: "/projects/wats-next-workflow-mobile.svg", width: 360, height: 420 },
+    },
     links: [{ label: "GitHub", href: "https://github.com/khalidtahir/Meeting-Actions-API" }],
   },
   {
     title: "RN Sync",
     period: "Capstone, Sep 2025 – Mar 2026",
-    tagline: "Real-time patient vitals monitoring on a serverless AWS backend.",
+    tagline: "Real-time patient monitoring prototype on a serverless AWS backend.",
     summary:
-      "A team capstone: an iOS app and serverless backend where sensor readings stream over WebSockets and signed-in users view patients and live data in a React Native (Expo) app. Available on the App Store.",
+      "A four-person capstone combining a React Native iOS app with a serverless AWS backend. The application sends simulated patient readings over WebSockets, stores them through the backend data layer, and allows authenticated users to view patient information and monitoring data.",
     built:
       "On a four-person capstone team, I designed the PostgreSQL schema and Supabase data layer and contributed to backend and mobile integration.",
     design:
@@ -170,6 +172,13 @@ export const projects: Project[] = [
     stack: ["React Native", "Expo", "Node.js", "AWS Lambda", "API Gateway (WebSocket)", "Cognito", "Supabase", "Jest", "GitHub Actions"],
     status: "completed",
     featured: true,
+    visual: {
+      src: "/projects/rn-sync-architecture.svg",
+      alt: "RN Sync architecture: a simulated sensor client connects through an API Gateway WebSocket API, authorized by a Lambda authorizer that checks a Cognito token at connection time, to a Lambda handler and service layer that store readings in Supabase PostgreSQL. The React Native app signs in with Cognito and reads data through an HTTP API, Lambda API handler and service layer. GitHub Actions runs tests and deploys the Lambdas.",
+      width: 960,
+      height: 600,
+      mobile: { src: "/projects/rn-sync-architecture-mobile.svg", width: 360, height: 512 },
+    },
     links: [
       { label: "App Store", href: "https://apps.apple.com/ca/app/rn-sync/id6759464120" },
       { label: "GitHub (backend)", href: "https://github.com/khalidtahir/RN-Sync" },

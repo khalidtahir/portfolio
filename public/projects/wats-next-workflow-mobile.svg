@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" width="360" height="420" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#7d8898"/>
+    </marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#34d399"/>
+    </marker>
+    <style>
+      .box { fill: #0b0e14; stroke: #2c3643; stroke-width: 1.2; }
+      .dash { fill: #0b0e14; stroke: #7d8898; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .acc { fill: #0b0e14; stroke: #34d399; stroke-width: 1.4; }
+      .ln { stroke: #7d8898; stroke-width: 1.5; fill: none; }
+      .lg { stroke: #34d399; stroke-width: 1.5; fill: none; }
+      .t { fill: #e6edf3; font-size: 13.5px; font-weight: 600; text-anchor: middle; }
+      .s { fill: #9aa4b2; font-size: 11.5px; text-anchor: middle; }
+      .tag { fill: #7d8898; font-size: 10.5px; letter-spacing: 1px; text-anchor: end; }
+      .tagg { fill: #34d399; font-size: 10.5px; letter-spacing: 1px; text-anchor: end; }
+      .note { fill: #c9d1d9; font-size: 12.5px; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect class="box" x="20" y="14" width="296" height="40" rx="8"/>
+  <text class="t" x="168" y="39">Transcript + open actions</text>
+  <path class="ln" d="M168 54 V72" marker-end="url(#a)"/>
+
+  <rect class="dash" x="20" y="74" width="296" height="52" rx="8"/>
+  <text class="t" x="168" y="98">AI proposal</text>
+  <text class="s" x="168" y="115">schema-validated JSON</text>
+  <path class="ln" d="M168 126 V144" marker-end="url(#a)"/>
+
+  <rect class="box" x="20" y="146" width="296" height="40" rx="8"/>
+  <text class="t" x="168" y="171">Review: current vs proposed</text>
+  <path class="lg" d="M92 186 V206" marker-end="url(#g)"/>
+  <path class="ln" d="M244 186 V206" marker-end="url(#a)"/>
+
+  <rect class="acc" x="20" y="208" width="144" height="40" rx="8"/>
+  <text class="t" x="92" y="233">Approve</text>
+  <rect class="box" x="172" y="208" width="144" height="40" rx="8"/>
+  <text class="t" x="244" y="233">Reject + feedback</text>
+
+  <!-- feedback loop to revised proposal -->
+  <path class="ln" d="M316 228 H342 V100 H318" marker-end="url(#a)"/>
+  <text class="s" x="331" y="170" transform="rotate(-90 331 170)">revised proposal</text>
+
+  <path class="lg" d="M92 248 V268" marker-end="url(#g)"/>
+  <rect class="box" x="20" y="270" width="144" height="52" rx="8"/>
+  <text class="t" x="92" y="293">Apply by ID</text>
+  <text class="s" x="92" y="310">deterministic code</text>
+  <path class="ln" d="M164 296 H182" marker-end="url(#a)"/>
+  <rect class="box" x="184" y="270" width="132" height="52" rx="8"/>
+  <text class="t" x="250" y="293">Saved actions</text>
+  <text class="s" x="250" y="310">+ weekly report</text>
+
+  <text class="note" x="180" y="372">The model proposes.</text>
+  <text class="note" x="180" y="392">A person approves. Code applies.</text>
+</svg>

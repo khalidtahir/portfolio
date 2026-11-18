@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: title, template: `%s | ${profile.name}` },
   description: profile.siteDescription,
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -33,27 +32,29 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0b0e14]/80 text-white backdrop-blur">
-          <nav aria-label="Main" className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3">
-            <Link href="/" className="text-lg font-bold">
+        <header className="z-40 border-b border-line bg-bg sm:sticky sm:top-0">
+          <nav aria-label="Main" className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-8 gap-y-3 px-5 py-4 sm:px-6">
+            <Link href="/" className="text-lg font-semibold tracking-tight text-fg">
               {profile.name}
             </Link>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <NavLink href="/projects">Projects</NavLink>
               <NavLink href="/background">Background</NavLink>
-              <NavLink href="/resume">Resume</NavLink>
               <NavLink href="/contact">Contact</NavLink>
+              <NavLink href="/resume" emphasis>
+                Resume
+              </NavLink>
             </div>
           </nav>
         </header>
 
-        <main id="main" className="mx-auto max-w-5xl px-4 py-8 sm:py-10">
+        <main id="main" className="mx-auto max-w-5xl px-5 pb-8 pt-10 sm:px-6 md:pt-14">
           {children}
         </main>
 
-        <footer className="mx-auto max-w-5xl px-4 py-8 text-xs text-white/70">
+        <footer className="mx-auto mt-16 max-w-5xl border-t border-line px-5 py-8 text-sm text-fg-3 sm:px-6">
           © {new Date().getFullYear()} {profile.name} · Built with Next.js ·{" "}
-          <a className="link" href="https://github.com/khalidtahir/portfolio" target="_blank" rel="noopener noreferrer">
+          <a className="link-quiet link-muted" href="https://github.com/khalidtahir/portfolio" target="_blank" rel="noopener noreferrer">
             View source<span className="sr-only"> (opens in a new tab)</span>
           </a>
         </footer>

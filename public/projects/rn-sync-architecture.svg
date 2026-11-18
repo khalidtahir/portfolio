@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#7d8898"/>
+    </marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#34d399"/>
+    </marker>
+    <style>
+      .box { fill: #0b0e14; stroke: #2c3643; stroke-width: 1.5; }
+      .acc { fill: #0b0e14; stroke: #34d399; stroke-width: 1.5; }
+      .ln { stroke: #7d8898; stroke-width: 1.8; fill: none; }
+      .lg { stroke: #34d399; stroke-width: 1.8; fill: none; }
+      .t { fill: #e6edf3; font-size: 21px; font-weight: 600; text-anchor: middle; }
+      .s { fill: #9aa4b2; font-size: 17px; text-anchor: middle; }
+      .cap { fill: #7d8898; font-size: 16px; letter-spacing: 1.5px; }
+      .m { fill: #9aa4b2; font-size: 17px; font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+      .ma { fill: #34d399; font-size: 17px; font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <!-- lane captions -->
+  <text class="cap" x="20" y="72">READINGS PATH</text>
+  <text class="cap" x="20" y="392">APP PATH</text>
+
+  <!-- readings path -->
+  <rect class="box" x="20" y="95" width="160" height="80" rx="10"/>
+  <text class="t" x="100" y="131">Client</text>
+  <text class="s" x="100" y="156">simulated sensor</text>
+
+  <rect class="box" x="217" y="95" width="160" height="80" rx="10"/>
+  <text class="t" x="297" y="131">API Gateway</text>
+  <text class="s" x="297" y="156">WebSocket API</text>
+
+  <rect class="box" x="414" y="95" width="160" height="80" rx="10"/>
+  <text class="t" x="494" y="131">Lambda</text>
+  <text class="s" x="494" y="156" style="font-size:16px">WebSocket handler</text>
+
+  <rect class="box" x="611" y="95" width="160" height="80" rx="10"/>
+  <text class="t" x="691" y="131">Service layer</text>
+  <text class="s" x="691" y="156">WebSocketService</text>
+
+  <path class="ln" d="M180 135 H215" marker-end="url(#a)"/>
+  <path class="ln" d="M377 135 H412" marker-end="url(#a)"/>
+  <path class="ln" d="M574 135 H609" marker-end="url(#a)"/>
+  <path class="ln" d="M771 135 H806" marker-end="url(#a)"/>
+
+  <!-- authorization at connection time -->
+  <rect class="acc" x="20" y="255" width="160" height="80" rx="10"/>
+  <text class="t" x="100" y="291">Cognito</text>
+  <text class="s" x="100" y="316">sign-in · tokens</text>
+
+  <rect class="acc" x="217" y="255" width="160" height="80" rx="10"/>
+  <text class="t" x="297" y="291">Authorizer</text>
+  <text class="s" x="297" y="316">Lambda</text>
+
+  <path class="lg" d="M297 175 V253" marker-end="url(#g)"/>
+  <text class="ma" x="309" y="220">$connect</text>
+  <path class="lg" d="M217 295 H182" marker-end="url(#g)"/>
+  <path class="ln" d="M100 255 V177" marker-end="url(#a)"/>
+  <text class="m" x="112" y="220">token</text>
+  <path class="ln" d="M100 415 V337" marker-end="url(#a)"/>
+  <text class="m" x="112" y="382">sign-in</text>
+
+  <!-- app path -->
+  <rect class="box" x="20" y="415" width="160" height="80" rx="10"/>
+  <text class="t" x="100" y="451">React Native</text>
+  <text class="s" x="100" y="476">iOS app</text>
+
+  <rect class="box" x="217" y="415" width="160" height="80" rx="10"/>
+  <text class="t" x="297" y="451">API Gateway</text>
+  <text class="s" x="297" y="476">HTTP API</text>
+
+  <rect class="box" x="414" y="415" width="160" height="80" rx="10"/>
+  <text class="t" x="494" y="451">Lambda</text>
+  <text class="s" x="494" y="476">API handler</text>
+
+  <rect class="box" x="611" y="415" width="160" height="80" rx="10"/>
+  <text class="t" x="691" y="451">Service layer</text>
+  <text class="s" x="691" y="476">REST services</text>
+
+  <path class="ln" d="M180 455 H215" marker-end="url(#a)"/>
+  <path class="ln" d="M377 455 H412" marker-end="url(#a)"/>
+  <path class="ln" d="M574 455 H609" marker-end="url(#a)"/>
+  <path class="ln" d="M771 455 H806" marker-end="url(#a)"/>
+
+  <!-- shared data layer -->
+  <rect class="box" x="808" y="95" width="132" height="400" rx="10"/>
+  <text class="t" x="874" y="268">Supabase</text>
+  <text class="s" x="874" y="293">PostgreSQL</text>
+  <text class="m" x="874" y="336" text-anchor="middle">readings</text>
+  <text class="m" x="874" y="360" text-anchor="middle">patients</text>
+  <text class="m" x="874" y="384" text-anchor="middle">doctors</text>
+  <text class="m" x="874" y="408" text-anchor="middle">files</text>
+
+  <!-- delivery -->
+  <rect x="217" y="545" width="554" height="38" rx="8" fill="none" stroke="#2c3643" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text class="s" x="494" y="570">GitHub Actions · run Jest tests · deploy Lambdas</text>
+</svg>

@@ -7,20 +7,24 @@ import type { ReactNode } from "react"
 type NavLinkProps = {
   href: string
   children: ReactNode
+  /** Slightly more prominent treatment (used for Resume). */
+  emphasis?: boolean
 }
 
-export default function NavLink({ href, children }: NavLinkProps) {
+export default function NavLink({ href, children, emphasis = false }: NavLinkProps) {
   const pathname = usePathname()
   const active = pathname === href || pathname.startsWith(`${href}/`)
 
+  const base = "text-[15px] transition-colors"
+  const plain = active
+    ? "text-fg underline decoration-accent decoration-2 underline-offset-[10px]"
+    : "text-fg-2 hover:text-fg"
+  const outlined = `rounded-lg border px-3 py-1 ${
+    active ? "border-accent text-accent" : "border-line text-fg hover:border-accent hover:text-accent"
+  }`
+
   return (
-    <Link
-      href={href}
-      aria-current={active ? "page" : undefined}
-      className={`rounded px-1 py-1 underline-offset-8 decoration-2 hover:underline ${
-        active ? "text-white underline decoration-emerald-400" : "text-white/75 decoration-white/30 hover:text-white"
-      }`}
-    >
+    <Link href={href} aria-current={active ? "page" : undefined} className={`${base} ${emphasis ? outlined : plain}`}>
       {children}
     </Link>
   )

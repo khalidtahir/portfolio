@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
-import ProjectCard from "@/components/ProjectCard"
+import FeaturedProject, { CompactProject } from "@/components/FeaturedProject"
 import { projects } from "@/data/site"
 
 export const metadata: Metadata = {
   title: "Projects",
+  alternates: { canonical: "/projects" },
   description:
-    "Selected software projects by Khalid Tahir: an AI meeting-actions app, a serverless real-time patient monitoring system, and a local-first iOS fitness app.",
+    "Selected software projects by Khalid Tahir: an AI meeting-actions app, a serverless real-time patient monitoring prototype, and a local-first iOS fitness app.",
 }
 
 export default function Projects() {
@@ -14,23 +15,27 @@ export default function Projects() {
 
   return (
     <div>
-      <h1 className="mb-2 text-3xl font-bold text-white">Projects</h1>
-      <p className="mb-8 max-w-2xl text-white/80">
+      <h1 className="text-[40px] font-bold leading-tight tracking-[-0.03em] text-fg">Projects</h1>
+      <p className="mt-4 max-w-2xl text-lg text-fg-2">
         What each project does, what I built, and one design decision worth calling out.
       </p>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        {featured.map((p) => (
-          <ProjectCard key={p.title} project={p} headingLevel={2} />
+      <div className="mt-14 space-y-20 md:mt-20 md:space-y-28">
+        {featured.map((p, i) => (
+          <FeaturedProject key={p.title} project={p} index={i} headingLevel={2} />
         ))}
       </div>
 
-      <h2 className="mb-5 mt-12 text-2xl font-semibold text-white">Other projects</h2>
-      <div className="grid gap-6 lg:grid-cols-2">
-        {other.map((p) => (
-          <ProjectCard key={p.title} project={p} headingLevel={3} />
-        ))}
-      </div>
+      <section aria-labelledby="more-heading" className="mt-24 md:mt-32">
+        <h2 id="more-heading" className="mb-6 text-xl font-semibold text-fg-2">
+          More projects
+        </h2>
+        <div className="-mt-px">
+          {other.map((p) => (
+            <CompactProject key={p.title} project={p} />
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

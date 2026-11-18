@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 512" width="360" height="512" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#7d8898"/>
+    </marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#34d399"/>
+    </marker>
+    <style>
+      .box { fill: #0b0e14; stroke: #2c3643; stroke-width: 1.2; }
+      .acc { fill: #0b0e14; stroke: #34d399; stroke-width: 1.2; }
+      .ln { stroke: #7d8898; stroke-width: 1.5; fill: none; }
+      .lg { stroke: #34d399; stroke-width: 1.5; fill: none; }
+      .t { fill: #e6edf3; font-size: 13.5px; font-weight: 600; text-anchor: middle; }
+      .s { fill: #9aa4b2; font-size: 11.5px; text-anchor: middle; }
+      .cap { fill: #7d8898; font-size: 11.5px; letter-spacing: 1.2px; }
+    </style>
+  </defs>
+
+  <text class="cap" x="20" y="16">READINGS PATH</text>
+  <rect class="box" x="20" y="24" width="320" height="36" rx="8"/>
+  <text class="t" x="180" y="47">Client · simulated sensor</text>
+  <path class="ln" d="M180 60 V76" marker-end="url(#a)"/>
+
+  <rect class="box" x="20" y="78" width="176" height="40" rx="8"/>
+  <text class="t" x="108" y="103">API Gateway · WebSocket</text>
+  <rect class="acc" x="216" y="78" width="124" height="40" rx="8"/>
+  <text class="t" x="278" y="95">Authorizer</text>
+  <text class="s" x="278" y="110">Cognito at connect</text>
+  <path class="lg" d="M196 98 H214" marker-end="url(#g)"/>
+  <path class="ln" d="M108 118 V134" marker-end="url(#a)"/>
+
+  <rect class="box" x="20" y="136" width="320" height="36" rx="8"/>
+  <text class="t" x="180" y="159">Lambda handler → service layer</text>
+  <path class="ln" d="M180 172 V188" marker-end="url(#a)"/>
+
+  <rect class="box" x="20" y="190" width="320" height="36" rx="8"/>
+  <text class="t" x="180" y="213">Supabase · PostgreSQL</text>
+
+  <text class="cap" x="20" y="252">APP PATH</text>
+  <rect class="box" x="20" y="260" width="320" height="36" rx="8"/>
+  <text class="t" x="180" y="283">React Native app · Cognito sign-in</text>
+  <path class="ln" d="M180 296 V312" marker-end="url(#a)"/>
+
+  <rect class="box" x="20" y="314" width="320" height="36" rx="8"/>
+  <text class="t" x="180" y="337">API Gateway · HTTP API</text>
+  <path class="ln" d="M180 350 V366" marker-end="url(#a)"/>
+
+  <rect class="box" x="20" y="368" width="320" height="36" rx="8"/>
+  <text class="t" x="180" y="391">Lambda API handler → service layer</text>
+  <path class="ln" d="M180 404 V420" marker-end="url(#a)"/>
+
+  <rect class="box" x="20" y="422" width="320" height="36" rx="8"/>
+  <text class="t" x="180" y="445">Supabase · PostgreSQL</text>
+
+  <text class="s" x="180" y="490">GitHub Actions: tests, then Lambda deploy</text>
+</svg>
